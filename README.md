@@ -1,13 +1,14 @@
 # Analiza podatkov s programom R, 2014/15
 
 Avtor: Špela Povrženič
+Naslov: Voda - vodovod, kanalizacija, izkoriščanje v industriji
 
 Repozitorij z gradivi pri predmetu APPR v študijskem letu 2014/15.
 
-## Tematika
+## Voda - vodovod, kanalizacija, izkoriščanje v industriji
 
-Izbrali si boste temo, s katero se bo vaš projekt ukvarjal. Tukaj boste
-napisali, kje ste dobili podatke, ter kakšen je vaš cilj.
+(Izbrali si boste temo, s katero se bo vaš projekt ukvarjal. Tukaj boste
+napisali, kje ste dobili podatke, ter kakšen je vaš cilj.)
 
 ## Program
 
