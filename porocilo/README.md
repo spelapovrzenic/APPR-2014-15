@@ -1,5 +1,6 @@
 # Poročilo
 1.FAZA
+
 V projektu, bom analizirala podatke, ki se navezujejo na vodo iz javnega vodovoda. Najprej bom analizirala porečja Slovenije, iz kjer pride voda v vodovode. Predstavila bom tudi kakšna je preskrba poslovnih subjektov z vodo po področjih dejavnosti v Sloveniji. Nato pa še porabo vode, dobljene iz javnega vodovoda, v gospodinjstvih na prebivalca.
 
 
