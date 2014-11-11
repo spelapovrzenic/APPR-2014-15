@@ -1,7 +1,16 @@
 # Poročilo
+1.FAZA
+V projektu, bom analizirala podatke, ki se navezujejo na vodo iz javnega vodovoda. Najprej bom analizirala porečja Slovenije, iz kjer pride voda v vodovode. Predstavila bom tudi kakšna je preskrba poslovnih subjektov z vodo po področjih dejavnosti v Sloveniji. Nato pa še porabo vode, dobljene iz javnega vodovoda, v gospodinjstvih na prebivalca.
 
-Naslov mojega projekta je Voda - vodovod, kanalizacija, izkoriščanje v industriji. Že sam naslov pove, da se bom ukvarjala z analizo podatkov, ki so povezani z javnim vodovodom (načrpana voda po vodnih virih, analiza dobavljene vode iz javnega vodovoda), javno kanalizacijo (analizirala bom odpadne vode po povodjih in porečjih, po viru onesnaženja ter po mestu izpusta ) ter analizirala bom kako izkoriščamo vodo v industriji.
 
-Podatke za moj projekt sem dobila na spletni strani Statističnega urada Republike Slovenjie (http://www.stat.si/). Na tej spletni strani je podatkovni portal, ki vsebuje povezave do vseh statističnih podatkov, tako da si bom med samim ustvarjanjem poročila izvažala tabele in podatke, katere lahko izbiram med datotekami oblike .html, .csv, .txt, .xls.
+Podatke za moj projekt sem dobila na spletni strani Statističnega urada Republike Slovenije. Ker lahko na statističnem uradu sam izbiraš v kakšni obliki bi imel podatke in tabele (izbiram lahko med datotekami oblike .html, .csv, .txt, .xls. ... ), sem se odločila, da bom za vsako od mojih 3 tabel uporabila drugačno metodo uvoza le-te v R, torej html., csv. in xls. oblike, na tak način pa bom spoznala vse tehnike in načine, kako jih uvoziti v R.
 
-MOj cilj projekta je, da analiziram uporabo in porabo vode v Sloveniji in v regijah v  javnem vodovodu, kanalizaciji ter njeno uporabo v industriji.
+Povezave do podatkovnih tabel:
+
+1. http://pxweb.stat.si/pxweb/Dialog/varval.asp?ma=2750104S&ti=&path=../Database/Okolje/27_okolje/03_27193_voda/01_27501_javni_vodovod/&lang=2
+
+2. http://pxweb.stat.si/pxweb/Dialog/varval.asp?ma=2750301S&ti=&path=../Database/Okolje/27_okolje/03_27193_voda/03_27503_industrija/&lang=2
+
+3. http://pxweb.stat.si/pxweb/Dialog/varval.asp?ma=3268904S&ti=&path=../Database/Okolje/32_trajnostni_razvoj/10_ravnovesje_skromnost/05_32689_naravni_viri/&lang=2
+
+Moj cilj projekta je, da analiziram iz kje največ dobimo vodo, katere so tiste dejavnosti, ki porabijo največ vode ter katere statistične regije porabijo največ vode v gospodinjstvih na prebivalca. 
