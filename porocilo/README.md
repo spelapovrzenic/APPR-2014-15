@@ -14,4 +14,6 @@ Povezave do podatkovnih tabel:
 
 3. http://pxweb.stat.si/pxweb/Dialog/varval.asp?ma=3268904S&ti=&path=../Database/Okolje/32_trajnostni_razvoj/10_ravnovesje_skromnost/05_32689_naravni_viri/&lang=2
 
+4. http://www.nrdc.org/water/drinking/arsenic/chap1.asp
+
 Moj cilj projekta je, da analiziram iz kje največ dobimo vodo, katere so tiste dejavnosti, ki porabijo največ vode ter katere statistične regije porabijo največ vode v gospodinjstvih na prebivalca. 
