@@ -1,16 +1,16 @@
 # 2. faza: Uvoz podatkov
 
-# Funkcija, ki uvozi podatke iz datoteke druzine.csv
-uvoziDruzine <- function() {
-  return(read.table("podatki/druzine.csv", sep = ";", as.is = TRUE,
-                      row.names = 1,
-                      col.names = c("obcina", "en", "dva", "tri", "stiri"),
-                      fileEncoding = "Windows-1250"))
-}
-
-# Zapišimo podatke v razpredelnico druzine.
-cat("Uvažam podatke o družinah...\n")
-druzine <- uvoziDruzine()
+# # Funkcija, ki uvozi podatke iz datoteke druzine.csv
+# uvoziDruzine <- function() {
+#   return(read.table("podatki/druzine.csv", sep = ";", as.is = TRUE,
+#                       row.names = 1,
+#                       col.names = c("obcina", "en", "dva", "tri", "stiri"),
+#                       fileEncoding = "Windows-1250"))
+# }
+# 
+# # Zapišimo podatke v razpredelnico druzine.
+# cat("Uvažam podatke o družinah...\n")
+# druzine <- uvoziDruzine()
 
 # Če bi imeli  več funkcij za uvoz in nekaterih npr. še ne bi
 # potrebovali v 3. fazi, bi bilo smiselno funkcije dati v svojo
@@ -18,12 +18,22 @@ druzine <- uvoziDruzine()
 # 2. fazi. Seveda bi morali ustrezno datoteko uvoziti v prihodnjih
 # fazah.
 
+#TABELA 1
 uvozi1 <- function() {
   return(read.csv("podatki/1tabela.csv", sep = ";", as.is = TRUE,
                     row.names = 1, 
                     fileEncoding = "Windows-1250"))
 }
 
-# Zapišimo podatke v razpredelnico druzine.
-cat("Uvažam podatke o družinah...\n")
+cat("Uvažam podatke o porečjih (tabela 1)\n")
 porecja <- uvozi1()
+
+#TABELA 2
+uvozi2 <- function() {
+  return(read.csv("podatki/2tabela.csv", sep = ";", as.is = TRUE,
+                  row.names = 1, 
+                  fileEncoding = "Windows-1250"))
+}
+
+cat("Uvažam podatke o porabi(tabela2)\n")
+poraba <- uvozi2()
