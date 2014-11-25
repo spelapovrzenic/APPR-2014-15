@@ -10,7 +10,7 @@ stripByPath <- function(x, path) {
 }
 
 uvozi.obcine <- function() {
-  url.obcine <- "http://sl.wikipedia.org/wiki/Seznam_ob%C4%8Din_v_Sloveniji"
+  url.obcine <- "http://epp.eurostat.ec.europa.eu/cache/ITY_FIXDST/ten00006.xml"
   doc.obcine <- htmlTreeParse(url.obcine, useInternalNodes=TRUE)
   
   # Poiščemo vse tabele v dokumentu
