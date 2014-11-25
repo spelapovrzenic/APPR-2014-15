@@ -17,3 +17,14 @@ druzine <- uvoziDruzine()
 # datoteko, tukaj pa bi klicali tiste, ki jih potrebujemo v
 # 2. fazi. Seveda bi morali ustrezno datoteko uvoziti v prihodnjih
 # fazah.
+
+uvozi1 <- function() {
+  return(read.table("podatki/1tabela.csv", sep = ";", as.is = TRUE,
+                    row.names = 1,
+                    col.names = c("obcina", "en", "dva", "tri", "stiri"),
+                    fileEncoding = "Windows-1250"))
+}
+
+# Zapišimo podatke v razpredelnico druzine.
+cat("Uvažam podatke o družinah...\n")
+porecja <- uvozi1()
