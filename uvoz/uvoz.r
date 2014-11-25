@@ -37,3 +37,13 @@ uvozi2 <- function() {
 
 cat("Uvažam podatke o porabi(tabela2)\n")
 poraba <- uvozi2()
+
+#TABELA 3
+uvozi3 <- function() {
+  return(read.csv("podatki/3tabela.csv", sep = ";", as.is = TRUE,
+                  row.names = 1,
+                  fileEncoding = "Windows-1250"))
+}
+
+cat("Uvažam podatke o regijah(tabela 3)\n")
+regije <- uvozi3()
