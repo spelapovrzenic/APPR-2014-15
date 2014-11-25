@@ -19,8 +19,8 @@ druzine <- uvoziDruzine()
 # fazah.
 
 uvozi1 <- function() {
-  return(read.table("podatki/1tabela.csv", sep = ";", as.is = TRUE,
-                    row.names = 1,
+  return(read.csv("podatki/1tabela.csv", sep = ";", as.is = TRUE,
+                    row.names = 1, 
                     fileEncoding = "Windows-1250"))
 }
 
