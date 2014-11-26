@@ -36,3 +36,6 @@ uvozi.obcine <- function() {
                     2, as.numeric), row.names=matrika[,1])
     )
 }
+
+r <- data.frame(apply(gsub(",", "", matrika[,2:5]),2, as.numeric), row.names=matrika[,1])
+names(r) <- c("Low Estimate of Number of Water Systems Affected","Low Estimate of Total Population Served","Best Estimate of Number of Water Systems Affected","Best Estimate of Total Population Served")
