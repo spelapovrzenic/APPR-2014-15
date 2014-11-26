@@ -10,7 +10,7 @@ stripByPath <- function(x, path) {
 }
 
 uvozi.obcine <- function() {
-  url.obcine <- "http://epp.eurostat.ec.europa.eu/cache/ITY_FIXDST/ten00006.xml"
+  url.obcine <- "http://www.nrdc.org/water/drinking/arsenic/chap1.asp"
   doc.obcine <- htmlTreeParse(url.obcine, useInternalNodes=TRUE)
   
   # Poiščemo vse tabele v dokumentu
@@ -18,21 +18,21 @@ uvozi.obcine <- function() {
   
   # Iz druge tabele dobimo seznam vrstic (<tr>) neposredno pod
   # trenutnim vozliščem
-  vrstice <- getNodeSet(tabele[[2]], "./tr")
+  vrstice <- getNodeSet(tabele[[1]], "./tr")
   
   # Seznam vrstic pretvorimo v seznam (znakovnih) vektorjev
   # s porezanimi vsebinami celic (<td>) neposredno pod trenutnim vozliščem
-  seznam <- lapply(vrstice[2:length(vrstice)], stripByPath, "./td")
+  seznam <- lapply(vrstice[3:length(vrstice)-1], stripByPath, "./td")
   
   # Iz seznama vrstic naredimo matriko
   matrika <- matrix(unlist(seznam), nrow=length(seznam), byrow=TRUE)
   
   # Imena stolpcev matrike dobimo iz celic (<th>) glave (prve vrstice) prve tabele
-  colnames(matrika) <- gsub("\n", " ", stripByPath(tabele[[2]][[1]], ".//th"))
+  colnames(matrika) <- gsub("\n", " ", stripByPath(vrstice[[1]], ".//td"))
   
   # Podatke iz matrike spravimo v razpredelnico
-  return(data.frame(apply(gsub("\\*", "",
-                          gsub(",", ".",
-                          gsub("\\.", "", matrika[,2:5]))),
-                    2, as.numeric), row.names=matrika[,1]))
+  return(
+    data.frame(apply(gsub(",", "", matrika[,2:5]),
+                    2, as.numeric), row.names=matrika[,1])
+    )
 }

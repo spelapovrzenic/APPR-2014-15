@@ -21,7 +21,7 @@
 #TABELA 1
 uvozi1 <- function() {
   return(read.csv("podatki/1tabela.csv", sep = ";", as.is = TRUE,
-                    row.names = 1, 
+                    row.names = 1, na.strings=c("-", "z") ,
                     fileEncoding = "Windows-1250"))
 }
 
@@ -31,7 +31,7 @@ porecja <- uvozi1()
 #TABELA 2
 uvozi2 <- function() {
   return(read.csv("podatki/2tabela.csv", sep = ";", as.is = TRUE,
-                  row.names = 1, 
+                  row.names = 1, na.strings="-",
                   fileEncoding = "Windows-1250"))
 }
 
@@ -41,7 +41,7 @@ poraba <- uvozi2()
 #TABELA 3
 uvozi3 <- function() {
   return(read.csv("podatki/3tabela.csv", sep = ";", as.is = TRUE,
-                  row.names = 1,
+                  row.names = 1, na.strings="-",
                   fileEncoding = "Windows-1250"))
 }
 
