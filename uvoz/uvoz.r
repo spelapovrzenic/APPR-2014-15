@@ -31,7 +31,8 @@ porecja <- uvozi1()
 #TABELA 2
 uvozi2 <- function() {
   return(read.csv("podatki/2tabela.csv", sep = ";", as.is = TRUE,
-                  row.names = 1, na.strings=c("-", "z","..."),
+                  row.names = 1,
+                  na.strings=c("-", "z","..."),
                   fileEncoding = "Windows-1250"))
 }
 
@@ -47,3 +48,13 @@ uvozi3 <- function() {
 
 cat("Uvažam podatke o regijah(tabela 3)\n")
 regije <- uvozi3()
+
+#TABELA 4
+uvozi4 <- function() {
+  return(read.csv2("podatki/eurotabela.csv", sep = ";", as.is = TRUE,
+                  row.names = 1, na.strings=c("-", "z",":"),
+                  fileEncoding = "Windows-1250"))
+}
+
+cat("Uvažam podatke o euro(tabela 4)\n")
+euro <- uvozi4()
