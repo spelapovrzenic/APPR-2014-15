@@ -1,31 +1,31 @@
  ;2008;2009;2010;2011;2012;2013
-Podroèja dejavnosti - SKUPAJ;84352574;100472674;93482005;75181298;83971201;99161282
-B Rudarstvo;1769;1178;1496;1110;1046;1016
-C Predelovalne dejavnosti;59553;58088;59026;53581;195738;316205
-C10 Proizvodnja živil;4321;5183;5365;3739;3523;3840
-C11 Proizvodnja pijaè;2029;1928;1656;1952;1882;3237
+SKUPAJ;12146;10164;9950;9274;9140;11371
+B Rudarstvo;370;291;298;270;232;190
+C Predelovalne dejavnosti;11426;9595;9382;8755;8481;10735
+C10 Proizvodnja živil;370;2580;2441;2160;2128;2414
+C11 Proizvodnja pijaè;1043;907;718;849;1067;2335
 C12 Proizvodnja tobaènih izdelkov;...;...;0;...;-;-
-C13 Proizvodnja tekstilij;1513;1003;692;571;717;748
-C14 Proizvodnja oblaèil;175;149;138;62;85;89
-C15 Proizvodnja usnja, usnjenih in sorodnih izdelkov;122;127;160;151;98;101
-C16 Obdelava in predelava lesa;392;297;318;321;307;305
-C17 Proizvodnja papirja in izdelkov iz papirja;12571;18261;17869;17185;90579;113845
-C18 Tiskarstvo in razmnoževanje posnetih nosilcev;146;96;88;89;118;93
+C13 Proizvodnja tekstilij;154;175;144;134;115;94
+C14 Proizvodnja oblaèil;88;76;73;...;13;27
+C15 Proizvodnja usnja, usnjenih in sorodnih izdelkov;49;63;66;59;-;24
+C16 Obdelava in predelava lesa;237;199;187;196;175;175
+C17 Proizvodnja papirja in izdelkov iz papirja;196;231;206;190;179;171
+C18 Tiskarstvo in razmnoževanje posnetih nosilcev;142;96;88;89;118;93
 C19 Proizvodnja koksa in naftnih derivatov;16;z;z;z;-;-
-C20 Proizvodnja kemikalij, kemiènih izdelkov;8991;8142;8698;7633;78242;41603
-C21 Proizvodnja farmacevtskih surovin in preparatov;5595;5606;6197;5732;5159;5723
-C22 Proizvodnja izdelkov iz gume in plastiènih mas;1640;1458;1094;1062;929;1152
-C23 Proizvodnja nekovinskih mineralnih izdelkov;2964;2217;2140;1820;1981;2106
-C24 Proizvodnja kovin;12704;8192;8637;8547;7952;7901
-C25 Proizvodnja kovin. izdelkov, razen strojev in naprav;2142;1731;1815;1668;1426;132196
-C26 Proizvodnja raèunal., elektr. in optiènih izdelkov;504;416;339;387;321;312
-C27 Proizvodnja elektriènih naprav;1315;1310;1558;860;787;1197
-C28 Proizvodnja drugih strojev in naprav;539;437;533;487;545;583
-C29 Proizvodnja motornih vozil, prikolic in polprik.;977;645;879;908;793;883
-C30 Proizvodnja drugih vozil in plovil;585;z;z;z;6;7
-C31 Proizvodnja pohištva;112;681;651;62;47;39
-C32 Druge raznovrstne predel. dejavnosti;87;81;58;77;107;86
-C33 Popravila in montaža strojev in naprav;124;117;136;191;134;159
-D Oskrba z elektrièno energijo, plinom in paro;83872670;99783476;92780727;74608181;83255992;98257016
-D Oskrba z elektrièno energijo, plinom in paro - od tega za pogon turbin;82970383;98971460;91940153;73927777;82672978;97225628
-"E Oskrba z vodo; ravnanje z odplakami in odpadki; saniranje okolja";418582;629932;640756;518426;518425;587045
+C20 Proizvodnja kemikalij, kemiènih izdelkov;885;762;850;706;545;769
+C21 Proizvodnja farmacevtskih surovin in preparatov;935;909;976;968;1048;1136
+C22 Proizvodnja izdelkov iz gume in plastiènih mas;366;283;265;285;265;257
+C23 Proizvodnja nekovinskih mineralnih izdelkov;934;528;592;534;521;564
+C24 Proizvodnja kovin;522;428;364;428;378;459
+C25 Proizvodnja kovin. izdelkov, razen strojev in naprav;653;572;536;512;474;535
+C26 Proizvodnja raèunal., elektr. in optiènih izdelkov;236;174;117;151;-;112
+C27 Proizvodnja elektriènih naprav;838;583;623;450;452;670
+C28 Proizvodnja drugih strojev in naprav;340;314;396;288;321;326
+C29 Proizvodnja motornih vozil, prikolic in polprik.;560;490;543;486;360;406
+C30 Proizvodnja drugih vozil in plovil;16;z;z;z;6;7
+C31 Proizvodnja pohištva;112;110;93;58;z;35
+C32 Druge raznovrstne predel. dejavnosti;52;52;24;23;z;75
+C33 Popravila in montaža strojev in naprav;30;58;75;112;40;51
+D Oskrba z elektrièno energijo, plinom in paro;342;267;255;231;371;357
+D Oskrba z elektrièno energijo, plinom in paro - od tega za pogon turbin;-;-;-;...;-;-
+"E Oskrba z vodo; ravnanje z odplakami in odpadki; saniranje okolja";8;11;z;z;56;89

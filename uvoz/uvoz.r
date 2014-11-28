@@ -58,3 +58,6 @@ uvozi4 <- function() {
 
 cat("Uvažam podatke o euro(tabela 4)\n")
 euro <- uvozi4()
+
+ro<-row.names(euro)
+ro[34] <- "Macedonia"
