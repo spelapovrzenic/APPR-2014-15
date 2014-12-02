@@ -5,7 +5,7 @@
 #   return(read.table("podatki/druzine.csv", sep = ";", as.is = TRUE,
 #                       row.names = 1,
 #                       col.names = c("obcina", "en", "dva", "tri", "stiri"),
-#                       fileEncoding = "Windows-1250"))
+#                       fileEncoding = "Windows-1250"))plot
 # }
 # 
 # # Zapišimo podatke v razpredelnico druzine.
@@ -21,7 +21,7 @@
 #TABELA 1
 uvozi1 <- function() {
   return(read.csv("podatki/1tabela.csv", sep = ";", as.is = TRUE,
-                    row.names = 1, na.strings=c("-", "z") ,
+                  row.names = 1, na.strings=c("-", "z") ,
                     fileEncoding = "Windows-1250"))
 }
 
