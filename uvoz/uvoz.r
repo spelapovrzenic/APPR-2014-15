@@ -47,3 +47,10 @@ uvozi3 <- function() {
 
 cat("Uvažam podatke o regijah(tabela 3)\n")
 regije <- uvozi3()
+
+#TABELA 4
+source("lib/xml.r", encoding="UTF-8")
+stopnje <- uvozi.voda()
+cat("Uvažam podatke o stopnjah(tabela 4)\n")
+
+
