@@ -32,7 +32,7 @@ porecja <- uvozi1()
 uvozi2 <- function() {
   return(read.csv("podatki/2tabela.csv", sep = ";", as.is = TRUE,
                   row.names = 1,
-                  na.strings=c("-", "z","..."),
+                  na.strings=c("-","z","..."),
                   fileEncoding = "Windows-1250"))
 }
 
@@ -50,13 +50,6 @@ cat("Uvažam podatke o regijah(tabela 3)\n")
 regije <- uvozi3()
 
 #TABELA 4
-<<<<<<< HEAD
-source("lib/xml.r", encoding="UTF-8")
-stopnje <- uvozi.voda()
-cat("Uvažam podatke o stopnjah(tabela 4)\n")
-
-
-=======
 uvozi4 <- function() {
   return(read.csv2("podatki/eurotabela.csv", sep = ";", as.is = TRUE,
                   row.names = 1, na.strings=c("-", "z",":"),
@@ -68,4 +61,8 @@ euro <- uvozi4()
 
 ro<-row.names(euro)
 ro[34] <- "Macedonia"
->>>>>>> f9251df16deb7999362fd87e8f6bff680b621ad6
+
+#TABELA 5
+source("lib/xml.r", encoding="UTF-8")
+stopnje <- uvozi.voda()
+cat("Uvažam podatke o stopnjah(tabela 4)\n")
