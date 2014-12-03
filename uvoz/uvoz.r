@@ -51,18 +51,19 @@ regije <- uvozi3()
 
 #TABELA 4
 uvozi4 <- function() {
-  return(read.csv2("podatki/eurotabela.csv", sep = ";", as.is = TRUE,
-                  row.names = 1, na.strings=c("-", "z",":"),
-                  fileEncoding = "Windows-1250"))
+  r <- read.csv2("podatki/eurotabela.csv", sep = ";", as.is = TRUE,
+                 row.names = 1, na.strings=c("-", "z",":"),
+                 fileEncoding = "Windows-1250")
+  ro <-row.names(r)
+  ro[34] <- "Macedonia"
+  row.names(r) <- ro
+  return(r)
 }
 
 cat("Uvažam podatke o euro(tabela 4)\n")
 euro <- uvozi4()
 
-ro<-row.names(euro)
-ro[34] <- "Macedonia"
-
 #TABELA 5
 source("lib/xml.r", encoding="UTF-8")
 stopnje <- uvozi.voda()
-cat("Uvažam podatke o stopnjah(tabela 4)\n")
+cat("Uvažam podatke o stopnjah(tabela 5)\n")
