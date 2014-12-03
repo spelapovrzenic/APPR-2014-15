@@ -1,4 +1,4 @@
-pdf("slike/grafi.pdf",paper="a4r")
+pdf("slike/grafi.pdf",paper="a4")
 
 #POREČJA(1)
 plot(porecja[,12], xlab="porečja", ylab="količina dobavljene vode", 
