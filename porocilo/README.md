@@ -1,5 +1,5 @@
 # Poročilo
-1.FAZA: Izbira teme
+## 1.FAZA: Izbira teme
 
 Za naslov mojega projekta sem izbrala Voda iz javnega vodovoda.
 V projektu, bom analizirala podatke, ki se navezujejo na vodo iz javnega vodovoda. 
@@ -23,7 +23,7 @@ Peta tabela pa je iz neke spletne strani, uvozila pa sem jo kot html. Izbrala pa
 
 Moj cilj projekta je, da analiziram iz kje največ dobimo vodo, katero je tisto leto in  dejavnosti, ki porabijo največ vode ter katere statistične regije porabijo največ vode v gospodinjstvih na prebivalca. 
 
-2.FAZA: Obdelava, uvoz in čiščenje podatkov
+## 2.FAZA: Obdelava, uvoz in čiščenje podatkov
 
 Uporabila sem 5 tabel.
 Prve tri sem dobila iz statističnega urada in jih uvozila v CSV obliki.
