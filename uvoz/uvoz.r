@@ -65,5 +65,5 @@ euro <- uvozi4()
 
 #TABELA 5
 source("lib/xml.r", encoding="UTF-8")
-stopnje <- uvozi.voda()
 cat("Uvažam podatke o stopnjah(tabela 5)\n")
+stopnje <- uvozi.voda()

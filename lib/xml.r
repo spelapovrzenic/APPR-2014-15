@@ -27,15 +27,8 @@ uvozi.voda <- function() {
   # Iz seznama vrstic naredimo matriko
   matrika <- matrix(unlist(seznam), nrow=length(seznam), byrow=TRUE)
   
-  # Imena stolpcev matrike dobimo iz celic (<th>) glave (prve vrstice) prve tabele
-  colnames(matrika) <- gsub("\n", " ", stripByPath(vrstice[[1]], ".//td"))
-  
   # Podatke iz matrike spravimo v razpredelnico
-  return(
-    data.frame(apply(gsub(",", "", matrika[,2:5]),
-                    2, as.numeric), row.names=matrika[,1])
-    )
-}
-
-r <- data.frame(apply(gsub(",", "", matrika[,2:5]),2, as.numeric), row.names=matrika[,1])
-names(r) <- c("Low Estimate of Number of Water Systems Affected","Low Estimate of Total Population Served","Best Estimate of Number of Water Systems Affected","Best Estimate of Total Population Served")
+    r <- data.frame(apply(gsub(",", "", matrika[,2:5]),2, as.numeric), row.names=matrika[,1])
+    names(r) <- c("Low Estimate of Number of Water Systems Affected","Low Estimate of Total Population Served","Best Estimate of Number of Water Systems Affected","Best Estimate of Total Population Served")
+    return(r)
+  }
