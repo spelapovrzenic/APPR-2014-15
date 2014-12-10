@@ -1,4 +1,4 @@
-pdf("slike/grafi.pdf",paper="a4r")
+pdf("slike/grafi.pdf",paper="a4")
 
 #POREČJA(1)
 plot(porecja[,12], xlab="porečja", ylab="količina dobavljene vode", 
@@ -13,11 +13,12 @@ barplot(as.matrix(poraba[1,1:6])/1000000,beside=TRUE,
 barplot(as.matrix(regije[2:13,11]), beside=TRUE,legend.text = rownames(regije)[2:13], 
         col=c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", 
               "#D55E00", "#CC79A7","#FFFFCC","#FF33FF","#66FFFF","#FFCCFF"),
-        xlim=c(0,23),main="Poraba vodovodne vode v gospodinjstvih na prebivalca",ylab="m3/prebivalca")
+        xlim=c(0,23),main="Poraba vodovodne vode v gospodinjstvih na prebivalca (leto 2012)",ylab="m3/prebivalca")
 
 #EURO(4)
-barplot(euro[,6],beside=TRUE, ylab="miljon m3", 
-        main="Preskrbi z vodo v evropskih državah, leto 2005",legend.text=rownames(euro),xlim=c(0,80))
+barplot(euro[,6], ylab = "milijon m3", las = 2,
+        main="Preskrbi z vodo v evropskih državah, leto 2005",
+        names.arg = rownames(euro), cex.names = 0.5,col = rainbow(37))
 
 #STOPNJE(5)
 barplot(as.matrix(stopnje[1:10, 4])/1000000, beside=TRUE, legend.text = rownames(stopnje)[1:10],

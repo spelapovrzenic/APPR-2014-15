@@ -1,6 +1,6 @@
 # Analiza podatkov s programom R, 2014/15
 
-## Voda iz javnega vodovod
+## Voda iz javnega vodovoda
 
 Avtor: Špela Povrženič
 
