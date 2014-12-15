@@ -1,17 +1,16 @@
 pdf("slike/grafi.pdf",paper="a4")
 
 #POREČJA(1)
-porecja1 <- porecja[-1,]
+porecja1 <- porecja[-1,]/1000
 na.vrstice1 <- is.na(porecja1[,12])
-barplot(porecja1[!na.vrstice1,12],  ylab="količina dobavljene vode", las = 2,
-        main="Porečja, leto 2013", ylim=c(0,140000),beside=TRUE, 
+barplot(porecja1[!na.vrstice1,12],  ylab="količina dobavljene vode (milijon m3)", las = 2,
+        main="Porečja, leto 2013", ylim=c(0,140),beside=TRUE, 
         names.arg = rownames(porecja1[!na.vrstice1,]), cex.names = 0.5,
         col = rainbow(sum(!na.vrstice1)))
 
 #PORABA(2)
-porabag <- as.matrix(poraba[1,1:6])/1000000
-plot(porabag,type = "p",
-        ylab = "milijarda m3",main="Preskrba poslovnih subjektov z vodo letno")
+plot(2008:2013, poraba[1,1:6]/1000000, "b", xlab = "leto",
+     ylab = "milijarda m3",main="Preskrba poslovnih subjektov z vodo letno", col="blue",pch=8)
 
 #REGIJE(3)
 barplot(as.matrix(regije[2:13,11]), beside=TRUE,legend.text = rownames(regije)[2:13], 
@@ -24,7 +23,7 @@ na.vrstice2 <- is.na(euro[,6])
 barplot(euro[!na.vrstice2,6], ylab = "milijon m3", las = 2,
         main="Preskrbi z vodo v evropskih državah, leto 2005",
         names.arg = rownames(euro[!na.vrstice2,]), cex.names = 0.5,
-        col = heat.colors(sum(!na.vrstice)))
+        col = heat.colors(sum(!na.vrstice2)))
 
 
 #STOPNJE(5)
