@@ -1,12 +1,16 @@
 pdf("slike/grafi.pdf",paper="a4")
 
 #POREČJA(1)
-plot(porecja[,12], xlab="porečja", ylab="količina dobavljene vode", 
-     main="Porečja, leto 2013",pch=20, col="blue")
+porecja1 <- porecja[-1,]
+na.vrstice1 <- is.na(porecja1[,12])
+barplot(porecja1[!na.vrstice1,12],  ylab="količina dobavljene vode", las = 2,
+        main="Porečja, leto 2013", ylim=c(0,140000),beside=TRUE, 
+        names.arg = rownames(porecja1[!na.vrstice1,]), cex.names = 0.5,
+        col = rainbow(sum(!na.vrstice1)))
 
 #PORABA(2)
-barplot(as.matrix(poraba[1,1:6])/1000000,beside=TRUE, 
-        col=c("#00904B", "#64BD4F", "#E13987", "#F191BA", "#FEEA65", "#FFE9E8"),
+porabag <- as.matrix(poraba[1,1:6])/1000000
+plot(porabag,type = "p",
         ylab = "milijarda m3",main="Preskrba poslovnih subjektov z vodo letno")
 
 #REGIJE(3)
@@ -16,9 +20,12 @@ barplot(as.matrix(regije[2:13,11]), beside=TRUE,legend.text = rownames(regije)[2
         xlim=c(0,23),main="Poraba vodovodne vode v gospodinjstvih na prebivalca (leto 2012)",ylab="m3/prebivalca")
 
 #EURO(4)
-barplot(euro[,6], ylab = "milijon m3", las = 2,
+na.vrstice2 <- is.na(euro[,6])
+barplot(euro[!na.vrstice2,6], ylab = "milijon m3", las = 2,
         main="Preskrbi z vodo v evropskih državah, leto 2005",
-        names.arg = rownames(euro), cex.names = 0.5,col = rainbow(37))
+        names.arg = rownames(euro[!na.vrstice2,]), cex.names = 0.5,
+        col = heat.colors(sum(!na.vrstice)))
+
 
 #STOPNJE(5)
 barplot(as.matrix(stopnje[1:10, 4])/1000000, beside=TRUE, legend.text = rownames(stopnje)[1:10],
