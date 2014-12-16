@@ -32,9 +32,11 @@ preuredi <- function(podatki, zemljevid) {
 rregije <- preuredi(regije[-1,], slo)
 
 # Izračunamo povprečno velikost družine.
-druzine$povprecje <- apply(druzine[1:4], 1, function(x) sum(x*(1:4))/sum(x))
-min.povprecje <- min(druzine$povprecje, na.rm=TRUE)
-max.povprecje <- max(druzine$povprecje, na.rm=TRUE)
+#druzine$povprecje <- apply(druzine[1:4], 1, function(x) sum(x*(1:4))/sum(x))
+min.2002 <- min(rregije[1], na.rm=TRUE)
+max.2002 <- max(rregije[1], na.rm=TRUE)
+norm.2002 <- (rregije[1]-min.2002)/(max.2002-min.2002)
+
 
 # Narišimo zemljevid v PDF.
 cat("Rišem zemljevid...\n")
@@ -50,8 +52,8 @@ source("lib/uvozi.zemljevid.r")
 
 # Uvozimo zemljevid.
 cat("Uvažam zemljevid...\n")
-EU <- uvozi.zemljevid("http://www.naturalearthdata.com/http//www.naturalearthdata.com/download/10m/cultural/ne_10m_admin_0_map_subunits.zip",
-                          "slovenija", "SVN_adm1.shp", mapa = "zemljevid",
+EU <- uvozi.zemljevid("http://www.eurogeographics.org/sites/default/files/EuroBoundaryMap_v81_Shapefiles.zip",
+                          "europa", "SVN_adm1.shp", mapa = "zemljevid",
                           encoding = "Windows-1250")
 
 # Funkcija, ki podatke preuredi glede na vrstni red v zemljevidu
