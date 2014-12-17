@@ -49,6 +49,8 @@ text(coordinates(slo),labels=as.character(slo$NAME_1),cex=0.3)
 title("Poraba vode na prebivalca (leto 2012)")
 
 
+# slo$regijee <- rregije[,11]
+# spplot(slo, "regijee", col = topo.colors(100))
 
 
 
