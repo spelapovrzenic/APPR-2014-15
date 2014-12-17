@@ -35,9 +35,9 @@ Pri peti tabeli o arzeniku, ki sem jo dobila na spletni strani, pa sem jo najpre
 
 Ko sem uvozila vse tabele, sem se lotila risanja grafov. Najprej sem v mapi slike, ustvarila novo R-skripto. Najprej sem napisala v prvi in zadnji vrstici ukaze, ki mi uvozijo grafe v pdf obliko. Nato pa sem začela z grafi. 
 
-Za prvo tabelo, ki govori o porečjih, sem se odločila da bom uporabila navaden graf(plot), saj sem želela, da bi iz grafa videli, koliko je porečij, ki so zelo veliki. Izbrala sem si samo podatke za porečja za leto 2013, saj neke bistvene razlike med leti drugače ni. 
+Za prvo tabelo, ki govori o porečjih, sem se odločila da bom uporabila stolpični graf(barplot), saj sem želela, da bi iz grafa videli, koliko je porečij, ki so zelo veliki. Izbrala sem si samo podatke za porečja za leto 2013, saj neke bistvene razlike med leti drugače ni. 
 
-Za drugo tabelo, ki govori o preskrba poslovnih subjektov z vodo, sem izbrala stolpični graf (barplot), saj sem želela pokazati oskrbo po vseh področjih skupaj, v različnih letih. 
+Za drugo tabelo, ki govori o preskrba poslovnih subjektov z vodo, sem izbrala točkast in črtast graf (plot, tipa b), saj sem želela pokazati oskrbo po vseh področjih skupaj, v različnih letih. 
 
 Za tretjo tabelo, ki govori o poraba vodovodne vode v gospodinjstvih na prebivalca, sem tudi uporabila stolpični graf (barplot), saj sem želela primerjati porabo vode v slovenskih regijah v letu 2012. 
 
