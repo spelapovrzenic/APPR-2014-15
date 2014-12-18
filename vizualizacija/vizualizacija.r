@@ -35,6 +35,19 @@ rregije <- preuredi(regije[-1,], slo)
 cat("Rišem zemljevid slovenije...\n")
 pdf("slike/slovenija.pdf")
 
+#Spremenjene koordinate in imena za Slovenijo
+koordinate1 <- coordinates(slo)
+imena1 <- as.character(slo$NAME_1)
+rownames(koordinate1) <- imena1
+names(imena1) <- imena1
+koordinate1["Obalno-kraška",1] <- koordinate1["Obalno-kraška",1]+0.1 #levo,desno
+koordinate1["Obalno-kraška",2] <- koordinate1["Obalno-kraška",2]+0.025 #dol,gor
+koordinate1["Zasavska",2] <- koordinate1["Zasavska",2]+0.01 
+koordinate1["Spodnjeposavska",1] <- koordinate1["Spodnjeposavska",1]+0.08
+koordinate1["Spodnjeposavska",2] <- koordinate1["Spodnjeposavska",2]
+imena1["Jugovzhodna Slovenija"] <- "Jugovzhodna\nSlovenija"
+imena1["Notranjsko-kraška"] <- "Notranjsko-\nkraška"
+imena1["Obalno-kraška"] <- "Obalno-\nkraška"
 
 #ZEMLJEVID POVPREČJA 
 rregije$povprecje <- apply(rregije,1, function(x) mean(x))
@@ -43,9 +56,9 @@ max.povprecje <- max(rregije[12], na.rm=TRUE)
 norm.povprecje <- (rregije[12]-min.povprecje)/(max.povprecje-min.povprecje)
 
 n = 100
-barve =topo.colors(n)[unlist(1+(n-1)*norm.povprecje)]
+barve =rgb(1, 1, (n:1)/n)[unlist(1+(n-1)*norm.povprecje)]
 plot(slo, col = barve,bg="lightblue")
-text(coordinates(slo),labels=as.character(slo$NAME_1),cex=0.3)
+text(koordinate1,labels=imena1,cex=0.4)
 title("Povprečna poraba vode na prebivalca")
 
 
@@ -54,19 +67,22 @@ title("Povprečna poraba vode na prebivalca")
 
 #A
 slo$vode2003 <- rregije[,2]
-print(spplot(slo, "vode2003", col = topo.colors(50), main = "Poraba vode na prebivalca (leto 2003)"))
-
+print(spplot(slo, "vode2003", col = topo.colors(50),
+             main = "Poraba vode na prebivalca (leto 2003)",
+             sp.layout = list(list("sp.text", koordinate1,imena1, cex = 0.5))))
 #B
 slo$vode2007 <- rregije[,6]
-print(spplot(slo, "vode2007", col = topo.colors(50), main = "Poraba vode na prebivalca (leto 2007)"))
+print(spplot(slo, "vode2007", col = topo.colors(50), 
+             main = "Poraba vode na prebivalca (leto 2007)",
+      sp.layout = list(list("sp.text", koordinate1,imena1, cex = 0.5))))
 
 #C
 slo$vode2012 <- rregije[,11]
-print(spplot(slo, "vode2012", col = topo.colors(50), main = "Poraba vode na prebivalca (leto 2012)"))
+print(spplot(slo, "vode2012", col = topo.colors(50), 
+             main = "Poraba vode na prebivalca (leto 2012)",
+      sp.layout = list(list("sp.text", koordinate1,imena1, cex = 0.5))))
 
 dev.off()
-
-
 
 
 
@@ -103,6 +119,10 @@ rownames(koordinate) <- imena
 names(imena) <- imena
 koordinate["Norway",1] <- koordinate["Norway",1] - 2
 koordinate["Cyprus",2] <- koordinate["Cyprus",2] - 1
+koordinate["United Kingdom",1] <- koordinate["United Kingdom",1]+1
+koordinate["United Kingdom",2] <- koordinate["United Kingdom",2]-1
+koordinate["Sweden",1] <- koordinate["Sweden",1]-1
+koordinate["Greece",1] <- koordinate["Greece",1]-0.8
 imena["United Kingdom"] <- "United\nKingdom"
 
 
