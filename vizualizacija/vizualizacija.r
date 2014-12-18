@@ -35,56 +35,34 @@ rregije <- preuredi(regije[-1,], slo)
 cat("Rišem zemljevid slovenije...\n")
 pdf("slike/slovenija.pdf")
 
-#ZEMLJEVID A - leto 2002
-min.2002 <- min(rregije[1], na.rm=TRUE)
-max.2002 <- max(rregije[1], na.rm=TRUE)
-norm.2002 <- (rregije[1]-min.2002)/(max.2002-min.2002)
+
+#ZEMLJEVID POVPREČJA 
+rregije$povprecje <- apply(rregije,1, function(x) mean(x))
+min.povprecje <- min(rregije[12], na.rm=TRUE)
+max.povprecje <- max(rregije[12], na.rm=TRUE)
+norm.povprecje <- (rregije[12]-min.povprecje)/(max.povprecje-min.povprecje)
 
 n = 100
-barve =topo.colors(n)[unlist(1+(n-1)*norm.2002)]
+barve =topo.colors(n)[unlist(1+(n-1)*norm.povprecje)]
 plot(slo, col = barve,bg="lightblue")
 text(coordinates(slo),labels=as.character(slo$NAME_1),cex=0.3)
-title("Poraba vode na prebivalca (leto 2002)")
+title("Povprečna poraba vode na prebivalca")
 
 
-#ZEMLJEVID B - leto 2007
-min.2007 <- min(rregije[6], na.rm=TRUE)
-max.2007 <- max(rregije[6], na.rm=TRUE)
-norm.2007 <- (rregije[6]-min.2007)/(max.2007-min.2007)
 
-n = 100
-barve =topo.colors(n)[unlist(1+(n-1)*norm.2007)]
-plot(slo, col = barve,bg="lightblue")
-text(coordinates(slo),labels=as.character(slo$NAME_1),cex=0.3)
-title("Poraba vode na prebivalca (leto 2007)")
-
-
-#ZEMLJEVID C - leto 2012
-min.2012 <- min(rregije[11], na.rm=TRUE)
-max.2012 <- max(rregije[11], na.rm=TRUE)
-norm.2012 <- (rregije[11]-min.2012)/(max.2012-min.2012)
-
-n = 100
-barve =topo.colors(n)[unlist(1+(n-1)*norm.2012)]
-plot(slo, col = barve,bg="lightblue")
-text(coordinates(slo),labels=as.character(slo$NAME_1),cex=0.3)
-title("Poraba vode na prebivalca (leto 2012)")
-
-
-#2.možnost
-SLO <- slo$NAME_1
+#PRIMERJAVA MED LETI 2003, 2007, 2012
 
 #A
 slo$vode2003 <- rregije[,2]
-spplot(slo, "vode2003", col = topo.colors(50), main = "Rodnost v Sloveniji za leto 2003")
+print(spplot(slo, "vode2003", col = topo.colors(50), main = "Poraba vode na prebivalca (leto 2003)"))
 
 #B
 slo$vode2007 <- rregije[,6]
-spplot(slo, "vode2007", col = topo.colors(50), main = "Rodnost v Sloveniji za leto 2007")
+print(spplot(slo, "vode2007", col = topo.colors(50), main = "Poraba vode na prebivalca (leto 2007)"))
 
 #C
 slo$vode2012 <- rregije[,11]
-spplot(slo, "vode2012", col = topo.colors(50), main = "Rodnost v Sloveniji za leto 2012")
+print(spplot(slo, "vode2012", col = topo.colors(50), main = "Poraba vode na prebivalca (leto 2012)"))
 
 dev.off()
 
