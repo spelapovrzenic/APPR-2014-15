@@ -67,18 +67,18 @@ title("Povprečna poraba vode na prebivalca")
 
 #A
 slo$vode2003 <- rregije[,2]
-print(spplot(slo, "vode2003", col = topo.colors(50),
+print(spplot(slo, "vode2003", col.regions  = topo.colors(50),
              main = "Poraba vode na prebivalca (leto 2003)",
              sp.layout = list(list("sp.text", koordinate1,imena1, cex = 0.5))))
 #B
 slo$vode2007 <- rregije[,6]
-print(spplot(slo, "vode2007", col = topo.colors(50), 
+print(spplot(slo, "vode2007", col.regions  = topo.colors(50), 
              main = "Poraba vode na prebivalca (leto 2007)",
       sp.layout = list(list("sp.text", koordinate1,imena1, cex = 0.5))))
 
 #C
 slo$vode2012 <- rregije[,11]
-print(spplot(slo, "vode2012", col = topo.colors(50), 
+print(spplot(slo, "vode2012", col.regions  = topo.colors(50), 
              main = "Poraba vode na prebivalca (leto 2012)",
       sp.layout = list(list("sp.text", koordinate1,imena1, cex = 0.5))))
 
