@@ -1,3 +1,4 @@
+cat("Uvažam grafe...\n")
 pdf("slike/grafi.pdf",paper="a4")
 
 #POREČJA(1)
