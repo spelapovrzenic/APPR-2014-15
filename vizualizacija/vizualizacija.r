@@ -33,7 +33,7 @@ rregije <- preuredi(regije[-1,], slo)
 
 # Narišimo zemljevid v PDF.
 cat("Rišem zemljevid slovenije...\n")
-pdf("slike/slovenija.pdf")
+pdf("slike/slovenija1.pdf")
 
 #Spremenjene koordinate in imena za Slovenijo
 koordinate1 <- coordinates(slo)
@@ -60,23 +60,30 @@ barve =rgb(1, 1, (n:1)/n)[unlist(1+(n-1)*norm.povprecje)]
 plot(slo, col = barve,bg="lightblue")
 text(koordinate1,labels=imena1,cex=0.4)
 title("Povprečna poraba vode na prebivalca")
+dev.off()
 
 
 
 #PRIMERJAVA MED LETI 2003, 2007, 2012
 
 #A
+pdf("slike/slovenija2.pdf")
 slo$vode2003 <- rregije[,2]
 print(spplot(slo, "vode2003", col.regions  = topo.colors(50),
              main = "Poraba vode na prebivalca (leto 2003)",
              sp.layout = list(list("sp.text", koordinate1,imena1, cex = 0.5))))
+dev.off()
+
 #B
+pdf("slike/slovenija3.pdf")
 slo$vode2007 <- rregije[,6]
 print(spplot(slo, "vode2007", col.regions  = topo.colors(50), 
              main = "Poraba vode na prebivalca (leto 2007)",
       sp.layout = list(list("sp.text", koordinate1,imena1, cex = 0.5))))
+dev.off()
 
 #C
+pdf("slike/slovenija4.pdf")
 slo$vode2012 <- rregije[,11]
 print(spplot(slo, "vode2012", col.regions  = topo.colors(50), 
              main = "Poraba vode na prebivalca (leto 2012)",
