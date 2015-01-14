@@ -60,7 +60,7 @@ barve =rgb(1, 1, (n:1)/n)[unlist(1+(n-1)*norm.povprecje)]
 plot(slo, col = barve,bg="lightblue")
 
 legend("bottomright", legend = round(seq(min.povprecje, max.povprecje, (max.povprecje-min.povprecje)/5)),
-       fill = rgb(1, 1, (1:6)/6), bg = "white")
+       fill = rgb(1, 1, (6:1)/6), bg = "white")
 
 text(koordinate1,labels=imena1,cex=0.4)
 title("Povprečna poraba vode na prebivalca")
