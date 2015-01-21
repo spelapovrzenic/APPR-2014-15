@@ -8,13 +8,14 @@
 \usepackage{breakurl}
 
 \pagestyle{plain}
-
 \begin{document}
 \title{Poročilo pri predmetu \\
 Analiza podatkov s programom R}
 \author{Špela Povrženič}
 \maketitle
 
+
+\newpage
 \section{Izbira teme}
 Za naslov mojega projekta sem izbrala Voda iz javnega vodovoda.
 V projektu, bom analizirala podatke, ki se navezujejo na vodo iz javnega vodovoda. 
@@ -41,6 +42,7 @@ Moj cilj projekta je, da analiziram iz kje največ dobimo vodo, katero je tisto 
 
 \newpage
 \section{Obdelava, uvoz in čiščenje podatkov}
+
 Uporabila sem 5 tabel.
 Prve tri sem dobila iz statističnega urada in jih uvozila v CSV. obliki.
 Četrto tabelo sem dobila iz eurostat-a, ki sem jo uvozila v xlsx obliki (v Excel tabelo), nato pa sem jo pretvorila v CSV. Peta tabela pa je iz neke spletne strani, uvozila pa sem jo kot html.
@@ -49,17 +51,23 @@ Najprej sem tabele, ki sem jih uvozila v CSV obliki, uredila, se pravi odstranil
 
 Pri peti tabeli o arzeniku, ki sem jo dobila na spletni strani, pa sem jo najprej uvozila v mapi lib, v xml.r. Najprej sem poiskala koliko tabel je v tej spletni strani, nato izbrala tisto, ki sem jo želela uvoziti, potem pa iz nje naredila matriko, nato pa še tabelo. Tudi to tabelo sem nato uvozila v mapi uvozi, v uvozi.r.
 
-Ko sem uvozila vse tabele, sem se lotila risanja grafov. Najprej sem v mapi slike, ustvarila novo R-skripto. Najprej sem napisala v prvi in zadnji vrstici ukaze, ki mi uvozijo grafe v pdf obliko. Nato pa sem začela z grafi. 
+Ko sem uvozila vse tabele, sem se lotila risanja grafov. Najprej sem v mapi slike, ustvarila novo R-skripto. Najprej sem napisala v prvi in zadnji vrstici ukaze, ki mi uvozijo grafe v pdf obliko. Nato pa sem začela z grafi.\\
 
-Za prvo tabelo, ki govori o porečjih, sem se odločila da bom uporabila stolpični graf(barplot), saj sem želela, da bi iz grafa videli, koliko je porečij, ki so zelo veliki. Izbrala sem si samo podatke za porečja za leto 2013, saj neke bistvene razlike med leti drugače ni. 
 
-Za drugo tabelo, ki govori o preskrba poslovnih subjektov z vodo, sem izbrala točkast in črtast graf (plot, tipa b), saj sem želela pokazati oskrbo po vseh področjih skupaj, v različnih letih. 
+\textbf{1.GRAF: \emph{Porecja, leto 2013}}: Za prvo tabelo, ki govori o porečjih, sem se odločila da bom uporabila stolpični graf (barplot), saj sem želela, da bi iz grafa videli, koliko je porečij v Sloveniji in katera so največja. Izbrala sem si samo podatke za porečja za leto 2013, saj neke bistvene razlike med leti drugače ni.\\
+\textbf{Interpretacija}: Iz grafa lahko vidimo, da povodje Donave in porečje Save priskrbita daleč največjo količino dobavljene vode.\\
 
-Za tretjo tabelo, ki govori o poraba vodovodne vode v gospodinjstvih na prebivalca, sem tudi uporabila stolpični graf (barplot), saj sem želela primerjati porabo vode v slovenskih regijah v letu 2012. 
+\textbf{2.GRAF: \emph{Preskrba poslovnih subjektov z vodo letno}}: Za drugo tabelo, ki govori o preskrba poslovnih subjektov z vodo, sem izbrala točkast in črtast graf (plot, tipa b), saj sem želela pokazati oskrbo po vseh področjih skupaj, v različnih letih.\\
+\textbf{Interpretacija}: Vidimo lahko, da je bila preskrba z vodo največja v letu 2009, nato pa je v dveh letih močno padla in v 2011 dosegla najnižno raven. Po letu 2011 pa je spet začela preskrba naraščati.\\
 
-Tudi za četrti graf, ki govori o preskrbi z vodo v evropskih državah, sem izbrala stolpičnega, saj me zanima, katere so tiste države, ki letno največ porabijo vode. Izbrala sem samo leto 2005, saj je v tej/četrti tabeli zelo veliko neznanih podatkov, zaradi česar je težko analizirati stvari, zaradi pomanjkanja podatkov, zato sem namenoma izbrala leto 2005, saj je le-to vsebovalo najmanj neznanih podatkov.
+\textbf{3.GRAF: \emph{Poraba vodovodne vode v gospodinjstvih na prebivalca, leto 2012}}: Za tretjo tabelo, ki govori o poraba vodovodne vode v gospodinjstvih na prebivalca, sem tudi uporabila stolpični graf (barplot), saj sem želela primerjati porabo vode v slovenskih regijah v letu 2012. \\
+\textbf{Interpretacija}: Opazimo lahko, da ima Gorenjska, Obalno-kraška, Goriška in Savinjska regija največjo porabo na prebivalca. Najmanjšo porabo pa ima Koroška.\\
 
-Prav tako za peti graf, ki govori o kolicina arzenika v vodovodnih sistemih, sem ibrala stolpični graf, saj vsebuje urejenostne spremenljivke in je zato najbolj primeren za prikaz podatkov.
+\textbf{4.GRAF: \emph{Preskrba z vodo v evropskih državah, leto 2005}}: Tudi za četrti graf, ki govori o preskrbi z vodo v evropskih državah, sem izbrala stolpičnega, saj me zanima, katere so tiste države, ki letno največ porabijo vode. Izbrala sem samo leto 2005, saj je v tej (četrti) tabeli zelo veliko neznanih podatkov, zaradi česar je težko analizirati stvari, zaradi pomanjkanja podatkov, zato sem namenoma izbrala leto 2005, saj je le-to vsebovalo najmanj neznanih podatkov.\\
+\textbf{Interpretacija}: Vidimo lahko, da ima Združeno Kraljestvo največjo preskrbo z vodo, nato Španija, Turčija in Francija. Zelo malo pa Slovenija, Danska, Islandija in Latvija.\\
+
+\textbf{5.GRAF: \emph{Kolicina arzenika v vodovodnih sistemih (število delcev na milijon)}}: Prav tako za peti graf, ki govori o kolicina arzenika v vodovodnih sistemih, sem izbrala stolpični graf, saj vsebuje urejenostne spremenljivke in je zato najbolj primeren za prikaz podatkov.\\
+\textbf{Interpretacija}: Opazimo lahko da ni veliko arzenika v vodah.
 
 \includepdf[pages={1-5}]{../slike/grafi.pdf}
 
