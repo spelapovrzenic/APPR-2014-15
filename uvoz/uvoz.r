@@ -36,10 +36,7 @@ uvozi4 <- function() {
   r <- read.csv2("podatki/eurotabela.csv", sep = ";", as.is = TRUE,
                  row.names = 1, na.strings=c("-", "z",":"),
                  fileEncoding = "Windows-1250")
-  ro <-row.names(r)
-  ro[34] <- "Macedonia"
-  row.names(r) <- ro
-  return(r)
+
 }
 
 cat("Uvažam podatke o euro(tabela 4)\n")
@@ -49,3 +46,13 @@ euro <- uvozi4()
 source("lib/xml.r", encoding="UTF-8")
 cat("Uvažam podatke o stopnjah(tabela 5)\n")
 stopnje <- uvozi.voda()
+
+#TABELA 6
+uvozi6 <- function() {
+  return(read.csv("podatki/prebiv.csv", sep = ";", as.is = TRUE,
+                  row.names = 1, na.strings=c("-", "z"),
+                  fileEncoding = "Windows-1250"))
+}
+
+cat("Uvažam podatke o št. prebivalcev v europi (tabela 6)\n")
+prebivalci <- uvozi6()

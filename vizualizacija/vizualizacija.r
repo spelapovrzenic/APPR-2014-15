@@ -143,14 +143,14 @@ imena["United Kingdom"] <- "United\nKingdom"
 cat("Rišem zemljevid europe...\n")
 pdf("slike/europa.pdf")
 
-
+rot <- ifelse(imena %in% "Portugal", 90, 0)
 EU$voda2005 <- eeuro[,6]
 print(spplot(EU, "voda2005", xlim=c(-25, 40), ylim=c(33, 73),
              main = "Preskrba z vodo v Evropi (leto 2005)",
-             col.regions = topo.colors(100),
+             col.regions = topo.colors(100),col="dimgrey",
              sp.layout = list(
                list("sp.polygons", EU[is.na(eeuro[,6]),], fill = "white"),
-               list("sp.text", koordinate, imena, cex = 0.3)),
+               list("sp.text", koordinate, imena, cex = 0.3,col="gray60", srt = rot)),
              par.settings = list(panel.background=list(col="lightyellow"))))
 
 
