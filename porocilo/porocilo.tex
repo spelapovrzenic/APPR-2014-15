@@ -10,7 +10,9 @@
 \pagestyle{plain}
 \begin{document}
 \title{Poročilo pri predmetu \\
-Analiza podatkov s programom R}
+Analiza podatkov s programom R\\
+\vspace{15mm}
+\textbf{\emph{Voda iz javnega vodovoda}}}
 \author{Špela Povrženič}
 \maketitle
 
@@ -79,7 +81,7 @@ V tej fazi sem se najprej odločila katere zemljevide bom vključila v svoj proj
 Prvi zemljevid prikazuje \textbf{povprečno porabo vode na prebivalca}, v letih 2002-2012. Iz zemljevida, po jakosti barve, lahko vidimo, da ima največjo porabo vode Primorska, Gorenjska in Osrednja Slovenija, najmanjšo porabo pa imajo na Koroškem in v Pomurju.
 
 \makebox[\textwidth][c]{
-\includegraphics[width=1.2\textwidth]{../slike/slovenija1.pdf}
+\includegraphics[width=1.6\textwidth]{../slike/slovenija1.pdf}
 }
 
 \newpage
@@ -98,13 +100,23 @@ Naslednji zemljevidi prikazujejo \textbf{porabo vode na prebivalca v letih 2003,
 
 \newpage
 
-Nazadnje pa sem analizirala tudi Evropo, namreč \textbf{preskrba z vodo v Evropi za leto 2005}. Iz zemljevida lahko razberemo, da ima največ preskrbe Združeno Kraljestvo in Španija, ter Turčija in Francija. Zelo malo pa Slovenija, Danska, Islandija in Latvija. Na žalost za ta zemljevid nisem imela podatkov, za vse države, zato je ta analiza malenkost pomankljiva.
+Analizirala sem tudi Evropo, namreč \textbf{preskrbo z vodo v Evropi za leto 2005}. Iz zemljevida lahko razberemo, da ima največ preskrbe Združeno Kraljestvo in Španija, ter Turčija in Francija. Zelo malo pa Slovenija, Danska, Islandija in Latvija. Na žalost za ta zemljevid nisem imela podatkov, za vse države, zato je ta analiza malenkost pomankljiva. A vseeno je lepo razvidno, da imajo večje države, večjo preskrbo z vodo, kar je popolnoma logično.
+
 
 \makebox[\textwidth][c]{
 \includegraphics[width=1.45\textwidth]{../slike/europa.pdf}
 }
 
 \newpage
+
+Da pa bi bila analiza evropske preskrbe z vodo bolj natančna in dejansko primerljiva med evropskimi državami, pa sem v naslednjem grafu prikazala \textbf{povprečno preskrbo z vodo v Evropi na prebivalca za leto 2005}. Tako sem še dodatno iz spletne strani \url{http://www.geohive.com/earth/his_proj_europe.aspx} uvozila tabelo v csv obliki. Prikazuje število prebivalcev za vsako evropsko državo. Nato pa sem podatke iz tabele euro normirala z številom prebivalcev v posamezni državi in tako dobila veliko bolj primerljive podatke.\\
+
+Iz zemljevida lahko vidimo, da ima Norveška daleč največjo preskrbo na prebivalca, nato Španija, Irska, Švedska, Združeno Kraljestvo, Portugalska ter Bolgarija in Makedonija. Najmanjšo preskrbo na prebivalca pa ima Litva.
+Če pa še omenimo Slovenijo, vidimo da ima v primerjavi z ostalimi, zelo majhno preskrbo z vodo.
+
+\makebox[\textwidth][c]{
+\includegraphics[width=1.4\textwidth]{../slike/europa2.pdf}
+}
 
 
 % \section{Napredna analiza podatkov}

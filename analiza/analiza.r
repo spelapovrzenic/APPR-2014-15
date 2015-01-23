@@ -19,11 +19,29 @@
 t <- apply(porecja, 1, c)
 plot(t[,2], t[,1])
 plot(t[,3], t[,1])
-plot(t[,4], t[,1])
+#plot(t[,4], t[,1])
+plot(t[,5], t[,1])
+plot(t[,10], t[,1])
+plot(t[,11], t[,1])
+plot(t[,14], t[,1])
+plot(t[,35], t[,1])
+plot(t[,33], t[,28]) #povodje soče & povodje jadranskega morja
+
+#sava drava mura se zlivajo v donavo
+plot(t[,2], t[,14])
+plot(t[,2], t[,3])
+plot(t[,2], t[,23])
 
 pairs(porecja[2:12])
-pairs(t[,c(3,5,10,20)])
-h <- hclust(dist(scale(porecja[1:12,])))
+#PARI
+#save
+pairs(t[,c(3,4,6,8,10,12)])
+#drave
+pairs(t[,c(2,14,15,17,18,20,22)])
+
+
+h <- hclust(dist(scale(porecja[1:20,])))
 plot(h, hang=-1)
+
 
 colnames(t)[c(2,1)]

@@ -33,7 +33,8 @@ rregije <- preuredi(regije[-1,], slo)
 
 # Narišimo zemljevid v PDF.
 cat("Rišem zemljevid slovenije...\n")
-pdf("slike/slovenija1.pdf")
+cairo_pdf("slike/slovenija1.pdf", width = 7.27, height = 5.69,
+          family = "Arial", onefile = TRUE)
 
 #Spremenjene koordinate in imena za Slovenijo
 koordinate1 <- coordinates(slo)
@@ -73,7 +74,8 @@ dev.off()
 #PRIMERJAVA MED LETI 2003, 2007, 2012
 
 #A
-pdf("slike/slovenija2.pdf")
+cairo_pdf("slike/slovenija2.pdf", width = 7.27, height = 5.69,
+          family = "Arial", onefile = TRUE)
 slo$vode2003 <- rregije[,2]
 print(spplot(slo, "vode2003", col.regions  = topo.colors(50),
              main = "Poraba vode na prebivalca (leto 2003)",
@@ -81,19 +83,21 @@ print(spplot(slo, "vode2003", col.regions  = topo.colors(50),
 dev.off()
 
 #B
-pdf("slike/slovenija3.pdf")
+cairo_pdf("slike/slovenija3.pdf", width = 11.27, height = 5.69,
+          family = "Arial", onefile = TRUE)
 slo$vode2007 <- rregije[,6]
 print(spplot(slo, "vode2007", col.regions  = topo.colors(50), 
              main = "Poraba vode na prebivalca (leto 2007)",
-      sp.layout = list(list("sp.text", koordinate1,imena1, cex = 0.5))))
+      sp.layout = list(list("sp.text", koordinate1,imena1, cex = 0.7))))
 dev.off()
 
 #C
-pdf("slike/slovenija4.pdf")
+cairo_pdf("slike/slovenija4.pdf", width = 11.27, height = 5.69,
+          family = "Arial", onefile = TRUE)
 slo$vode2012 <- rregije[,11]
 print(spplot(slo, "vode2012", col.regions  = topo.colors(50), 
              main = "Poraba vode na prebivalca (leto 2012)",
-      sp.layout = list(list("sp.text", koordinate1,imena1, cex = 0.5))))
+      sp.layout = list(list("sp.text", koordinate1,imena1, cex = 0.7))))
 
 dev.off()
 
@@ -141,7 +145,8 @@ imena["United Kingdom"] <- "United\nKingdom"
 
 # Narišimo zemljevid v PDF.
 cat("Rišem zemljevid europe...\n")
-pdf("slike/europa.pdf")
+cairo_pdf("slike/europa.pdf", width = 7.27, height = 5.69,
+          family = "Arial", onefile = TRUE)
 
 rot <- ifelse(imena %in% "Portugal", 90, 0)
 EU$voda2005 <- eeuro[,6]
@@ -150,7 +155,25 @@ print(spplot(EU, "voda2005", xlim=c(-25, 40), ylim=c(33, 73),
              col.regions = topo.colors(100),col="dimgrey",
              sp.layout = list(
                list("sp.polygons", EU[is.na(eeuro[,6]),], fill = "white"),
-               list("sp.text", koordinate, imena, cex = 0.3,col="gray60", srt = rot)),
+               list("sp.text", koordinate, imena, cex = 0.35,col="black", srt = rot)),
+             par.settings = list(panel.background=list(col="lightyellow"))))
+
+dev.off()
+
+#Preskrba na prebivalca
+cat("Rišem zemljevid europe; preskrba na prebivalca...\n")
+cairo_pdf("slike/europa2.pdf", width = 7.27, height = 5.69,
+          family = "Arial", onefile = TRUE)
+m <- match(row.names(eeuro), row.names(prebivalci))
+povprecno.prebivalstvo <- apply(prebivalci[m, c("X2000", "X2010")], 1, mean)
+EU$poraba05 <- eeuro$X2005/povprecno.prebivalstvo
+
+print(spplot(EU, "poraba05", xlim=c(-25, 40), ylim=c(33, 73),
+             main = "Povprečna preskrba z vodo v Evropi na prebivalca (leto 2005)",
+             col.regions = topo.colors(100),
+             sp.layout = list(
+               list("sp.polygons", EU[is.na(eeuro[,6]),], fill = "white"),
+               list("sp.text", koordinate, imena, cex = 0.3,col="black", srt = rot)),
              par.settings = list(panel.background=list(col="lightyellow"))))
 
 
