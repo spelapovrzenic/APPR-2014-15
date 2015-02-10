@@ -26,7 +26,7 @@ barplot(as.matrix(regije[o,11]), beside=TRUE,legend.text = rownames(regije)[o],
 
 #EURO(4)
 
-na.vrstice2 <- is.na(euro[,36])
+na.vrstice2 <- is.na(euro[,6])
 barplot(euro[!na.vrstice2,6], ylab = "milijon m3", las = 2,
         main="Preskrba z vodo v evropskih državah, leto 2005",
         names.arg = rownames(euro[!na.vrstice2,]), cex.names = 0.5,
