@@ -36,6 +36,6 @@ barplot(euro[!na.vrstice2,6], ylab = "milijon m3", las = 2,
 #STOPNJE(5)
 barplot(as.matrix(stopnje[1:10, 4])/1000000, beside=TRUE, legend.text = rownames(stopnje)[1:10],
         main="Količina arzenika v vodovodnih sistemih (število delcev na milijon)", ylab = "milijoni")
-
+abline(v =6, col="red") 
 
 dev.off()
