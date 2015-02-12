@@ -14,7 +14,7 @@ rect.hclust(h,k=6,border="violet")
 
 ############################################################################
 
-#LINEARNA&KVADRATNA 
+#LINEARNA&KVADRATNA  (izberi katere bi si izbrala!!)
 #cat("Rišem linearna&kvadratna ...\n")
 
 t <- apply(porecja, 1, c)
@@ -81,6 +81,17 @@ pairs(t[,c(2,14,15,17,18,20,22)])
 
 ##################################################
 dev.off()
+
+
+
+
+
+
+
+
+
+
+
 
 
 

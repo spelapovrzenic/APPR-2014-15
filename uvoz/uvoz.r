@@ -56,3 +56,12 @@ uvozi6 <- function() {
 
 cat("Uvažam podatke o št. prebivalcev v europi (tabela 6)\n")
 prebivalci <- uvozi6()
+
+#TABELA7
+uvozi7 <- function() {
+  return(read.csv("podatki/world.csv", sep = ";", as.is = TRUE,
+                  row.names = 1, na.strings=c("-"," ","z"),
+                  fileEncoding = "Windows-1250"))
+}
+cat("Uvažam podatke o europski porabi čez čas(tabela 7)\n")
+world <- uvozi7()
