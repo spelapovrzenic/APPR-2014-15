@@ -82,12 +82,14 @@ pairs(t[,c(2,14,15,17,18,20,22)])
 ##################################################
 dev.off()
 
+#EVROPA
+euroana <- apply(podatki.EU , 1, c) #transponiran world
 
-
-
-
-
-
+podatki.EU <- world[as.character(EU$sovereignt),]
+ma <- match(row.names(podatki.EU), row.names(prebivalci))
+povprecno.prebivalstvo <- apply(prebivalci[m, c("X1980", "X2020")], 1, mean)
+analiza.eu <- podatki.EU/povprecno.prebivalstvo #podatki deljeno preb
+#EU$analiza <- podatki.EU/povprecno.prebivalstvo  #za zemljevid
 
 
 
