@@ -6,9 +6,11 @@ cairo_pdf("slike/grafi.pdf", width = 9.27, height = 11.69,
 #POREČJA(1)
 porecja1 <- porecja[-1,]/1000
 na.vrstice1 <- is.na(porecja1[,12])
-barplot(porecja1[!na.vrstice1,12],  ylab="količina dobavljene vode (milijon m3)", las = 2,
+reke <- (porecja1[!na.vrstice1,])[12]
+o1<- order(reke, decreasing = TRUE)
+barplot(reke[o1,],  ylab="količina dobavljene vode (milijon m3)", las = 2,
         main="Porečja, leto 2013", ylim=c(0,140),beside=TRUE, 
-        names.arg = rownames(porecja1[!na.vrstice1,]), cex.names = 0.5,
+        names.arg = rownames(porecja1[!na.vrstice1,])[o1], cex.names = 0.5,
         col = rainbow(sum(!na.vrstice1)))
 
 #PORABA(2)
@@ -27,9 +29,11 @@ barplot(as.matrix(regije[o,11]), beside=TRUE,legend.text = rownames(regije)[o],
 #EURO(4)
 
 na.vrstice2 <- is.na(euro[,6])
-barplot(euro[!na.vrstice2,6], ylab = "milijon m3", las = 2,
+preskrba <- (euro[!na.vrstice2,])[6]
+oo <- order(preskrba, decreasing = FALSE)
+barplot(preskrba[oo,], ylab = "milijon m3", las = 2,
         main="Preskrba z vodo v evropskih državah, leto 2005",
-        names.arg = rownames(euro[!na.vrstice2,]), cex.names = 0.5,
+        names.arg = rownames(preskrba)[oo], cex.names = 0.5,
         col = heat.colors(sum(!na.vrstice2)))
 
 
