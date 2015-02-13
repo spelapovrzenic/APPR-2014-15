@@ -23,18 +23,14 @@ skupaj <- t[,1]
 plot(donava, skupaj, xlab="Povodje Donave",ylab="Slovenija - skupaj")
 linearna <- lm(skupaj~donava)
 abline(linearna, col="blue")
-kvadratna <- lm(skupaj ~ I(donava^2) + donava)
-curve(predict(kvadratna, data.frame(donava=x)), add = TRUE, col = "red")
+# kvadratna <- lm(skupaj ~ I(donava^2) + donava)
+# curve(predict(kvadratna, data.frame(donava=x)), add = TRUE, col = "red")
 
 sava <- t[,3]
 plot(sava,skupaj, xlab="Porečje Save",ylab="Slovenija - skupaj")
 kvadratna <- lm(skupaj ~ I(sava^2) + sava)
 curve(predict(kvadratna, data.frame(sava=x)), add = TRUE, col = "red")
 
-krsava<-t[,10]
-plot(krsava, skupaj, xlab="Krška-Sava",ylab="Slovenija - skupaj") 
-kvadratna <- lm(skupaj ~ I(krsava^2) + krsava)
-curve(predict(kvadratna, data.frame(krsava=x)), add = TRUE, col = "red")
 
 drava<-t[,14]
 plot(drava, skupaj,xlab="Porečje Drave",ylab="Slovenija - skupaj")
@@ -60,13 +56,9 @@ abline(linearna, col="blue")
 plot(drava, donava, xlab="Porečje Drave",ylab="Povodje Donave")
 linearna <- lm(donava~drava)
 abline(linearna, col="blue")
-kvadratna <- lm(donava ~ I(drava^2) + drava)
-curve(predict(kvadratna, data.frame(drava=x)), add = TRUE, col = "red")
 
 #Porečje Save
 plot(sava,donava,xlab="Porečje Save",ylab="Povodje Donave") 
-linearna <- lm(donava~sava)
-abline(linearna, col="blue")
 kvadratna <- lm(donava ~ I(sava^2) + sava)
 curve(predict(kvadratna, data.frame(sava=x)), add = TRUE, col = "red")
 
@@ -144,6 +136,29 @@ dev.off()
 
 #k$size koliko je v posamezni skupini držav
 
+###############################################
+#EVROPA
+library(impute)
+# #za podatke deljene z prebiv
+# izbor2 <- analiza.eu[c(  "X1987",	"X1992",	"X1997","X2002", "X2007", "X2013")]
+# analiza.izbor2 <- impute.knn(as.matrix(izbor2[apply(is.na(izbor2), 1, sum) <= 1,]))$data
+# vsotaeu <-colSums(analiza.izbor2)
+# plot(vsotaeu)
+
+#za podatke europe
+podatki.EU <- world[as.character(EU$sovereignt),]
+izbor3 <- podatki.EU[c(  "X1987",  "X1992",	"X1997","X2002", "X2007", "X2013")]
+analiza.izbor3 <- impute.knn(as.matrix(izbor3[apply(is.na(izbor3), 1, sum) <= 1,]))$data
+vsotaeu2 <-colSums(analiza.izbor3)
+plot(vsotaeu2)
+
+# linearna <- lm(vsotaeu2~index)
+# abline(linearna, col="blue")
+# kvadratna <- lm(vsotaeu2 ~ I(donava^2) + donava)
+# curve(predict(kvadratna, data.frame(donava=x)), add = TRUE, col = "red")
+
+
+
 
 #################
 #nepomembni podatki zaenkrat
@@ -162,5 +177,12 @@ analiza.eu <- podatki.EU/povprecno.prebivalstvo #podatki deljeno preb
 #plot(t[,11], t[,1],xlab="Krka",ylab="Slovenija - skupaj") # Krka
 #plot(t[,4], t[,1])
 #plot(t[,5], t[,1], xlab="Sora",ylab="Slovenija - skupaj")  #Sora
+
+
+# krsava<-t[,10]
+# plot(krsava, skupaj, xlab="Krška-Sava",ylab="Slovenija - skupaj") 
+# kvadratna <- lm(skupaj ~ I(krsava^2) + krsava)
+# curve(predict(kvadratna, data.frame(krsava=x)), add = TRUE, col = "red")
+
 
 #pairs(porecja[2:12]) #težko primerjet
