@@ -137,6 +137,8 @@ imena2["Albania"]<-"Alb"
 imena2["Slovenia"]<-"SLO"
 
 text(koordinate2,labels=imena2,cex=0.3)
+legend("bottomleft", col = barve, lty = "solid", cex = 0.5,
+       legend = c("skupina 1", "skupina 2", "skupina 3","skupina 4", "skupina 5", "skupina 6"))
 
 dev.off()
 
