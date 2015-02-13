@@ -109,7 +109,7 @@ k <- kmeans(analiza.izbor, 6)
 drzavee <- row.names(analiza.izbor)
 m <- match(svet$name_long, drzavee)
 barve <- rainbow(6)
-plot(svet, col=ifelse(is.na(m), "grey", barve[k$cluster[m]]),
+plot(svet, col=ifelse(is.na(m), "grey", barve[cutree(hh, k = 6)[m]]),
      xlim=c(-12, 35), ylim=c(34, 70), main="Evropa po skupinah glede na količino zajema vode")
 
 
