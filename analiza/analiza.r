@@ -2,8 +2,8 @@
 
 #POREČJA PO GRUPAH (tree)
 
-cat("Rišem porečja po grupah...\n")
-cairo_pdf("slike/grupe_porecja.pdf", width = 9.27, height = 5.69,
+cat("Rišem analizo...\n")
+cairo_pdf("slike/analiza.pdf", width = 9.27, height = 5.69,
           family = "Arial", onefile = TRUE)
 naporecja <- is.na(porecja[,11])
 por <- porecja[!naporecja,]
@@ -71,7 +71,7 @@ kvadratna <- lm(donava ~ I(sava^2) + sava)
 curve(predict(kvadratna, data.frame(sava=x)), add = TRUE, col = "red")
 
 ###############################################################################
-dev.off()
+
 
 #PARI
 #save
@@ -104,6 +104,15 @@ rect.hclust(hh,k=6,border="green")
 #EVROPA zemljevid
 
 source("lib/uvozi.zemljevid.r")
+analiza.izbor <- scale(analiza.izbor)
+k <- kmeans(analiza.izbor, 6)
+drzavee <- row.names(analiza.izbor)
+m <- match(svet$name_long, drzavee)
+barve <- rainbow(6)
+plot(svet, col=ifelse(is.na(m), "grey", barve[k$cluster[m]]),
+     xlim=c(-12, 35), ylim=c(34, 70), main="Evropa po skupinah glede na količino zajema vode")
+
+
 EUU <- svet[svet$name_long %in% drzavee,]
 koordinate2 <- coordinates(EUU)
 imena2 <- as.character(EUU$name)
@@ -116,8 +125,9 @@ koordinate2["United Kingdom",2] <- koordinate2["United Kingdom",2]-1
 koordinate2["Sweden",1] <- koordinate2["Sweden",1]-1
 koordinate2["Greece",1] <- koordinate2["Greece",1]-0.8
 koordinate2["Russia",1] <- koordinate2["Russia",1]-65
-koordinate2["Croatia", 2]<- koordinate2["Croatia",2]+0.7
-koordinate2["Croatia", 1]<- koordinate2["Croatia",1]+0.2
+koordinate2["Russia",2] <- koordinate2["Russia",2]-3
+koordinate2["Moldova",1] <- koordinate2["Moldova",1]+0.4
+koordinate2["Portugal",2] <- koordinate2["Portugal",2]+0.3
 imena2["United Kingdom"] <- "United\nKingdom"
 imena2["Bosnia and Herz."] <- "BiH"
 imena2["Luxembourg"]<- "Lux"
@@ -125,20 +135,10 @@ imena2["Montenegro"]<-"Mont"
 imena2["Macedonia"]<-"Mac"
 imena2["Albania"]<-"Alb"
 imena2["Slovenia"]<-"SLO"
-imena2["Croatia"]<-"HR"
-
-
-analiza.izbor <- scale(analiza.izbor)
-k <- kmeans(analiza.izbor, 6)
-drzavee <- row.names(analiza.izbor)
-m <- match(svet$name_long, drzavee)
-barve <- rainbow(6)
-plot(svet, col=ifelse(is.na(m), "grey", barve[k$cluster[m]]),
-     xlim=c(-22, 40), ylim=c(36, 70))
 
 text(koordinate2,labels=imena2,cex=0.3)
 
-
+dev.off()
 
 #k$size koliko je v posamezni skupini držav
 
