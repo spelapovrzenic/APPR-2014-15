@@ -9,20 +9,22 @@ naporecja <- is.na(porecja[,11])
 por <- porecja[!naporecja,]
 porec<- por[c(-31,-30,-19, -24),]
 h <- hclust(dist(scale(porec)),method="ward.D2")
-plot(h, hang=0.1, cex=0.7, main = "Porečja v Sloveniji",xlab ="Porečja",ylab=NULL,sub = "od leta 2002 do 2012")
+plot(h, hang=0.1, cex=0.7, main = "Porečja v Sloveniji",xlab ="Porečja",
+     ylab=NULL,sub = "od leta 2002 do 2012")
 rect.hclust(h,k=6,border="violet")
 
 ############################################################################
 
 #SLOVENIJA KOLIČINA PO LETIH PADA
-# krivulj ki bi se podatkom najboljše prilegala.
+#regresijska premica krivulj ki bi se podatkom najboljše prilegala.
 #Če je linearna regresija iščemo premico. y = k*x+n
 
 sleto <-c(2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013)
 t <- apply(porecja, 1, c)
 
 skupaj <- t[,1]
-plot(sleto,skupaj, xlab="Leto",ylab="Slovenija - skupaj", main="nekaj z regresijsko premico")
+plot(sleto,skupaj, xlab="Leto",ylab="Slovenija - skupaj", 
+     main="Količina vode dobljena po porečjih, 2002-2013")
 linearna <- lm(skupaj~sleto)
 abline(linearna, col="blue")
 
@@ -33,12 +35,16 @@ library(mgcv)
 loess <- loess(skupaj~sleto) #za lokalno prilagajanje;NAPOVEDNI MODEL
 curve(predict(loess, data.frame(sleto=x)), add = TRUE, col = "green")
 
+legend("topright",legend=c("Linerana: lm(skupaj ~ leto)", 
+                    "Kvadratna: lm(skupaj ~ I(leto^2) + leto)",
+                    "Loess: loess(skupaj~leto)"),lty = "solid", cex = 0.7,
+       col = c("blue","red", "green"))
+
 #manjši ostanek je bolj natančen
 vsota.kvadratov <- sapply(list(linearna, kvadratna, loess), function(x) sum(x$residuals^2))
 #249937183 208907001  74889334 (najbolj natančen loess)
 
 ###############################################################################
-
 
 #PARI
 
@@ -54,8 +60,12 @@ panel.cor <- function(x, y, digits = 2, prefix = "", cex.cor, na.rm = TRUE, ...)
 }
 
 #NAJVEČJA - povodja porečja
+#Korelacija ali korelacijski koeficient je številska mera, ki predstavlja moč 
+#linearne povezanosti dveh spremenljivk. 
+
 reke <- t[,c(1,2,14,3,23,28,33)]
-pairs(reke, lower.panel = panel.smooth, upper.panel = panel.cor, main="korelacije")
+pairs(reke, lower.panel = panel.smooth, upper.panel = panel.cor, 
+      main="Korelacije med največjimi povodji, 2002-2013")
 
 # #save
 # vsesave<-t[,c(3,4,6,8,10,12)]
