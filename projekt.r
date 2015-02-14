@@ -10,7 +10,9 @@ source("slike/grafi.R",encoding="UTF-8")
 # 3. faza: Analiza in vizualizacija podatkov
 source("vizualizacija/vizualizacija.r",encoding="UTF-8")
 
-# # 4. faza: Napredna analiza podatkov
-# source("analiza/analiza.r")
+# 4. faza: Napredna analiza podatkov
+source("analiza/analizaslo.r",encoding="UTF-8")
+source("analiza/analizaeu.r",encoding="UTF-8")
+
 
 cat("Končano.\n")
