@@ -37,7 +37,7 @@ curve(predict(loess, data.frame(sleto=x)), add = TRUE, col = "green")
 
 legend("topright",legend=c("Linerana: lm(skupaj ~ leto)", 
                     "Kvadratna: lm(skupaj ~ I(leto^2) + leto)",
-                    "Loess: loess(skupaj~leto)"),lty = "solid", cex = 0.7,
+                    "Loess: loess(skupaj~leto)"),lty = "solid", cex = 0.8,
        col = c("blue","red", "green"))
 
 #manjši ostanek je bolj natančen

@@ -15,7 +15,7 @@ izbor <- analiza.eu[c("X2002", "X2007", "X2013")]
 analiza.izbor <- impute.knn(as.matrix(izbor[apply(is.na(izbor), 1, sum) <= 1,]))$data
 
 hh <- hclust(dist(analiza.izbor))
-plot(hh, hang=0.1, cex=0.7, main = "Evropa",xlab ="Analiza Evropa",ylab=NULL,
+plot(hh, hang=0.1, cex=0.7, main = "Zajem vode v Evropi, na prebivalca",xlab ="Analiza",ylab=NULL,
      sub = "za leta 2002, 2007, 2013")
 rect.hclust(hh,k=7,border="green")
 
@@ -79,8 +79,21 @@ analiza.izbor3 <- impute.knn(as.matrix(izbor3[apply(is.na(izbor3), 1, sum) <= 1,
 vsotaeu2 <-colSums(analiza.izbor3)
 plot(leta,vsotaeu2, ylab="količina vode", main="Količina zajete vode (poraba + izguba) za Evropo")
 
-linearna <- lm(vsotaeu2~leta)
-abline(linearna, col="darkviolet")
+lin <- lm(vsotaeu2~leta)
+abline(lin, col="darkviolet")
+
+kv<- lm(vsotaeu2 ~ I(leta^2) + leta)
+curve(predict(kv, data.frame(leta=x)), add = TRUE, col = "red")
+
+
+legend("topright",legend=c("Linerana: lm(količina.vode ~ leta)", 
+                           "Kvadratna: lm(količina.vode ~ I(leta^2) + leta)")
+       ,lty = "solid", cex = 0.8,
+       col = c("darkviolet","red"))
+
+#manjši ostanek je bolj natančen
+vsota.kv <- sapply(list(linearna, kvadratna), function(x) sum(x$residuals^2))
+#8.003063e+02 2.089070e+08 (linearna bolj natančna)
 
 #####################################
 # VSAKA SKUPINA POSEBEJ
@@ -88,7 +101,7 @@ euroana <- apply(analiza.izbor , 1, c)
 leta2 <- c( 2002, 2007, 2013)
 
 #estonia 1
-plot(leta2,euroana[,13]) #NARAŠČA
+plot(leta2,euroana[,13], xlab="Leta",ylab="Količina zajete vode", main="1.skupina: predstavnica Estonija") #NARAŠČA
 lin0 <- lm(euroana[,13]~leta2)
 abline(lin0, col="blue")
 
@@ -96,31 +109,31 @@ abline(lin0, col="blue")
 
 #3.skupina - VSE PADAJO, NEKATERE MALO BOL POLOŽNO
 #United Kingdom
-plot(leta2,euroana[,16])
+plot(leta2,euroana[,16], xlab="Leta",ylab="Količina zajete vode", main="3.skupina: predstavnica Združeno Kraljestvo")
 lin8 <- lm(euroana[,16]~leta2)
 abline(lin8, col="lightblue")
 
 
 #4.skupina NARAŠČA
 #Slovenija
-plot(leta2,euroana[,34])#NARAŠČA
+plot(leta2,euroana[,34],xlab="Leta",ylab="Količina zajete vode", main="4. skupina: predstavnica Slovenija") #NARAŠČA
 lin18 <- lm(euroana[,34]~leta2)
 abline(lin18, col="darkviolet")
 
 #5 (vEČINA) PADA
 #Germany
-plot(leta2,euroana[,10])# PADA
+plot(leta2,euroana[,10],, xlab="Leta",ylab="Količina zajete vode", main="5. skupina: predstavnica Nemčija")# PADA
 lin25 <- lm(euroana[,10]~leta2)
 abline(lin25, col="violet")
 
 
-#4.skipina PADA (razen zadnja)
+#6.skipina PADA 
 #France
-plot(leta2,euroana[,15])
+plot(leta2,euroana[,15], xlab="Leta",ylab="Količina zajete vode", main="6. skupina: predstavnica Francija")
 lin30 <- lm(euroana[,15]~leta2)
 abline(lin30, col="darkgreen")
 
 
-#5.sk MEŠANO
+#7.sk MEŠANO
 
 dev.off()
