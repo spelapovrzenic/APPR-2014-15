@@ -1,7 +1,7 @@
 # 4. faza: Analiza podatkov
 
 #POREČJA PO GRUPAH (tree) pogrupirane so po velikosti
-cat("Rišem analizo...\n")
+cat("Rišem analizo Slovenije ...\n")
 cairo_pdf("slike/analizaslo.pdf", width = 9.27, height = 5.69,
           family = "Arial", onefile = TRUE)
 
@@ -21,12 +21,12 @@ sleto <-c(2002 ,2003 ,2004 ,2005 ,2006, 2007 ,2008 ,2009, 2010,2011, 2012,2013)
 t <- apply(porecja, 1, c)
 
 #SLOVENIJA KOLIČINA PO LETIH PADA
+skupaj <- t[,1]
 plot(sleto,skupaj, xlab="Leto",ylab="Slovenija - skupaj")
 linearna <- lm(skupaj~sleto)
 abline(linearna, col="blue")
 
 donava <- t[,2]
-skupaj <- t[,1]
 plot(donava, skupaj, xlab="Povodje Donave",ylab="Slovenija - skupaj")
 linearna <- lm(skupaj~donava)
 abline(linearna, col="blue")

@@ -1,6 +1,10 @@
-#GRUPIRANJE EVROPE
 library(impute)
 
+cat("Rišem analizo Evrope...\n")
+cairo_pdf("slike/analizaeu.pdf", width = 9.27, height = 5.69,
+          family = "Arial", onefile = TRUE)
+
+#GRUPIRANJE EVROPE
 podatki.EU <- world[as.character(EU$sovereignt),]
 ma <- match(row.names(podatki.EU), row.names(prebivalci))
 povprecno.prebivalstvo <- apply(prebivalci[ma, c("X1980", "X2020")], 1, mean)
@@ -119,3 +123,4 @@ abline(lin30, col="darkgreen")
 
 #5.sk MEŠANO
 
+dev.off()
