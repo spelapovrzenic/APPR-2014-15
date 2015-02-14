@@ -85,11 +85,23 @@ abline(lin, col="darkviolet")
 kv<- lm(vsotaeu2 ~ I(leta^2) + leta)
 curve(predict(kv, data.frame(leta=x)), add = TRUE, col = "red")
 
-
 legend("topright",legend=c("Linerana: lm(količina.vode ~ leta)", 
                            "Kvadratna: lm(količina.vode ~ I(leta^2) + leta)")
        ,lty = "solid", cex = 0.8,
        col = c("darkviolet","red"))
+
+#NAPOVED
+napoved <- function(x, model){predict(model,data.frame(leta=x))}
+
+plot(leta,vsotaeu2,xlim= c(1987,2040),ylim=c(80,180),xlab="Leta",ylab="Količina vode", 
+     main="Napoved zajete vode za Evropo do leta 2040")
+curve(napoved(x, lin),col="darkviolet",add=TRUE)
+curve(napoved(x, kv),col="red",add=TRUE)
+legend("bottomleft",legend=c("Linerana napoved", 
+                           "Kvadratna napoved")
+       ,lty = "solid", cex = 0.8,
+       col = c("darkviolet","red"))
+
 
 #manjši ostanek je bolj natančen
 vsota.kv <- sapply(list(linearna, kvadratna), function(x) sum(x$residuals^2))
@@ -132,6 +144,7 @@ abline(lin25, col="violet")
 plot(leta2,euroana[,15], xlab="Leta",ylab="Količina zajete vode", main="6. skupina: predstavnica Francija")
 lin30 <- lm(euroana[,15]~leta2)
 abline(lin30, col="darkgreen")
+
 
 
 #7.sk MEŠANO
