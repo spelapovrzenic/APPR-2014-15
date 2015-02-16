@@ -1,8 +1,8 @@
 # 4. faza: Analiza podatkov
 
 #POREČJA PO GRUPAH (tree) pogrupirane so po velikosti
-cat("Rišem analizo Slovenije ...\n")
-cairo_pdf("slike/analizaslo.pdf", width = 9.27, height = 5.69,
+cat("Rišem analizo Slovenije -grupiranje ...\n")
+cairo_pdf("slike/analizaslo1.pdf", width = 9.27, height = 5.69,
           family = "Arial", onefile = TRUE)
 
 naporecja <- is.na(porecja[,11])
@@ -13,12 +13,16 @@ plot(h, hang=0.1, cex=0.7, main = "Porečja v Sloveniji",xlab ="Porečja",
      ylab=NULL,sub = "od leta 2002 do 2012")
 rect.hclust(h,k=6,border="violet")
 
+dev.off()
 ############################################################################
 
 #SLOVENIJA KOLIČINA PO LETIH PADA
 #regresijska premica krivulj ki bi se podatkom najboljše prilegala.
 #Če je linearna regresija iščemo premico. y = k*x+n
 
+cat("Rišem analizo Slovenije - graf po letih ...\n")
+cairo_pdf("slike/analizaslo2.pdf", width = 9.27, height = 5.69,
+          family = "Arial", onefile = TRUE)
 sleto <-c(2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013)
 t <- apply(porecja, 1, c)
 
@@ -44,9 +48,13 @@ legend("topright",legend=c("Linerana: lm(skupaj ~ leto)",
 vsota.kvadratov <- sapply(list(linearna, kvadratna, loess), function(x) sum(x$residuals^2))
 #249937183 208907001  74889334 (najbolj natančen loess)
 
+dev.off()
 ###############################################################################
 
 #PARI
+cat("Rišem analizo Slovenije -pari ...\n")
+cairo_pdf("slike/analizaslo3.pdf", width = 9.27, height = 5.69,
+          family = "Arial", onefile = TRUE)
 
 panel.cor <- function(x, y, digits = 2, prefix = "", cex.cor, na.rm = TRUE, ...)
 {

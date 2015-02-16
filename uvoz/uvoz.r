@@ -65,3 +65,12 @@ uvozi7 <- function() {
 }
 cat("Uvažam podatke o europski porabi čez čas(tabela 7)\n")
 world <- uvozi7()
+
+#TABELA8
+uvozi8 <- function() {
+  return(read.csv("podatki/padavine.csv", sep = ";", as.is = TRUE,
+                  row.names = 1, na.strings=c("-"," ","z"),
+                  fileEncoding = "Windows-1250"))
+}
+cat("Uvažam podatke o padavinah (tabela 8)\n")
+padavine <- uvozi8()

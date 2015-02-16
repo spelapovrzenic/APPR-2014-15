@@ -15,7 +15,7 @@ barplot(reke[o1,],  ylab="količina dobavljene vode (milijon m3)", las = 2,
 
 #PORABA(2)
 plot(2008:2013, poraba[1,1:6]/1000000, "b", xlab = "leto",
-     ylab = "milijarda m3",main="Preskrba poslovnih subjektov z vodo letno", col="blue",pch=8)
+     ylab = "milijarda m3",main="Preskrba poslovnih subjektov z vodo, letno", col="blue",pch=8)
 
 #REGIJE(3)
 o <- order(regije[,11], decreasing = TRUE)
@@ -41,5 +41,15 @@ barplot(preskrba[oo,], ylab = "milijon m3", las = 2,
 barplot(as.matrix(stopnje[1:10, 4])/1000000, beside=TRUE, legend.text = rownames(stopnje)[1:10],
         main="Količina arzenika v vodovodnih sistemih (število delcev na milijon)", ylab = "milijoni")
 abline(v =6, col="red") 
+
+dev.off()
+
+#PADAVINE(6)
+cat("Uvažam graf padavn...\n")
+cairo_pdf("slike/graf_padavine.pdf", width = 9.27, height = 5,
+          family = "Arial", onefile = TRUE)
+plot(2008:2013, padavine[1,], "b", xlab = "leto",
+     ylab = "količine padavin (mm)",main="Povprečne letne količine padavin v Sloveniji", col="cyan",pch=19)
+
 
 dev.off()

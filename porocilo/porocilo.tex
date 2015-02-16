@@ -40,7 +40,7 @@ Peta tabela pa je iz neke spletne strani, uvozila pa sem jo kot html. Izbrala pa
 
 \item{\url{http://www.nrdc.org/water/drinking/arsenic/chap1.asp}}
 \end{enumerate}
-Moj cilj projekta je, da analiziram iz kje največ dobimo vodo, katero je tisto leto in  dejavnosti, ki porabijo največ vode ter katere statistične regije porabijo največ vode v gospodinjstvih na prebivalca. 
+Moj cilj projekta je, da analiziram iz kje največ dobimo vodo, kako se obnaša poraba in preskrba vode čez čas ter katere statistične regije porabijo največ vode v gospodinjstvih na prebivalca.
 
 \newpage
 \section{Obdelava, uvoz in čiščenje podatkov}
@@ -61,7 +61,7 @@ Ko sem uvozila vse tabele, sem se lotila risanja grafov. Najprej sem v mapi \ver
 
 
 \textbf{2.GRAF: \emph{Preskrba poslovnih subjektov z vodo letno}}: Za drugo tabelo, ki govori o preskrba poslovnih subjektov z vodo, sem izbrala točkast in črtast graf (plot, tipa b), saj sem želela pokazati oskrbo po vseh področjih skupaj, v različnih letih.\\
-\textbf{Interpretacija}: Vidimo lahko, da je bila preskrba z vodo največja v letu 2009, nato pa je v dveh letih močno padla in v 2011 dosegla najnižno raven. Po letu 2011 pa je spet začela preskrba naraščati.\\
+\textbf{Interpretacija}: Vidimo lahko, da je bila preskrba z vodo največja v letu 2009, nato pa je v dveh letih močno padla in v 2011 dosegla najnižjo raven. Po letu 2011 pa je spet začela preskrba naraščati.\\
 
 \textbf{3.GRAF: \emph{Poraba vodovodne vode v gospodinjstvih na prebivalca, leto 2012}}: Za tretjo tabelo, ki govori o poraba vodovodne vode v gospodinjstvih na prebivalca, sem tudi uporabila stolpični graf (barplot), saj sem želela primerjati porabo vode v slovenskih regijah v letu 2012. \\
 \textbf{Interpretacija}: Opazimo lahko, da ima Gorenjska, Obalno-kraška, Goriška in Savinjska regija največjo porabo na prebivalca. Najmanjšo porabo pa ima Koroška.\\
@@ -122,13 +122,38 @@ Iz zemljevida lahko vidimo, da ima Norveška daleč največjo preskrbo na prebiv
 \newpage
 
 \section{Napredna analiza podatkov}
+\subsection{Napredna analiza Slovenije}
+
+Če na kratko povzamem ugotovitve iz prejšnjih faz za Slovenijo:
+\begin{enumerate} 
+\item{Povodje Donave in porečje Save priskrbita daleč največjo količino dobavljene vode.}
+\item{Preskrba z vodo med leti 2008-2013, je bila največja v letu 2009, nato pa je v dveh letih močno padla in v 2011 dosegla najnižjo raven, po letu 2011 pa je spet začela preskrba naraščati.}
+\item{Med leti 2002-2012 ima največjo povprečno porabo vode Primorska, Gorenjska in Osrednja Slovenija, najmanjšo porabo pa imajo na Koroškem in v Pomurju.}
+\item{V letu 2012 ima Gorenjska, Obalno-kraška, Goriška in Savinjska regija največjo porabo na prebivalca, najmanjšo pa Koroška.}
+\item{V Jugovzhodni Sloveniji poraba vode na prebivalca z leti narašča, v Osrednjeslovenski, Podravski, Spodnjeposavski, Zasavski in Koroški regiji pa poraba z leti pada. Za ostale regije nemoremo predvidevati dogajanja, saj poraba iz leta v leto niha.}
+\end{enumerate}
+
+V prejšnjih fazah sem torej ugotovila že mnogo stvari, ki so me na samem začetku zanimale, tako kakšne so razlike porabe vode po regijah ter iz katerih porečij dobimo največ vode. Če pa se ustavim pri \emph{2. ugotovitvi} (torej da je bila preskrba z vodo, 2008-2013, največja v letu 2009, nato je v dveh letih močno padla in v 2011 dosegla minimalno vrednost, nato pa po letu 2011 spet začela naraščati), pa lahko opazim, da ta ugotovitev potrebuje še dodatno analizo, namreč zanima me, kaj je glavni ralog, da je bil v letu 2011 tak velik padec preskrbe vode. Ker je količina vode v veliki odvisnosti povezana z padavinami, sem se odočila, da to mojo hipotezo tudi preverim. Uvozila sem novo iz spletne strani statističnega urada \url{http://pxweb.stat.si/pxweb/Dialog/varval.asp?ma=0156104S&ti=&path=../Database/Okolje/01_ozemlje_podnebje/10_01561_podnebni_kazalniki/&lang=2}, ki prikazuje \textbf{povprečne letne in mesečne količine padavin letno v Sloveniji}. Tako sem iz te table, naredila \textbf{5.GRAF}, ki prikazuje \textbf{\emph{povprečne letne količine padavin v Sloveniji med leti 2008-2013}}.
+
+\makebox[\textwidth][c]{
+\includegraphics[width=1.2\textwidth]{../slike/graf_padavine.pdf}
+}
+
+Vidimo lahko, da je naš graf o padavinah zelo podoben 2.grafu, grafu o preskrbi, torej iz tega grafa lahko razberemo, da je povprečna letna količina padavin v Sloveniji drastično padla leta 2011, potem pa je količina naraščala. Točno tako je bilo tudi pri preskrbi Slovenije z vodo. Torej je preskrba v letu 2011 dosegla minimalno vrednost, zaradi minimalne vrednosti padavin.  Tako sem našo zgornjo hipotezo potrdila, torej, da je količina vode v veliki odvisnosti povezana z padavinami in tako tudi preskrba Slovenije z vodo. \emph{Večja kot bo povprečna letna količina padavin, večja bo preskrba z vodo}.
+
+
+kkkkkkkkkkkkkkkkkk
+
+\makebox[\textwidth][c]{
+\includegraphics[width=1.4\textwidth]{../slike/analizaslo1.pdf}
+}
+
 
 Uvozila novo tabelo, iz spletne strani \url{http://data.worldbank.org/indicator/ER.H2O.FWTL.K3/countries/1W?display=default}, ki prikazuje \textbf{podatke o količini zajema vode} (to je poraba + izguba vode skupaj), za cel svet. Ker sem že v prejšnjih fazah analizirala Slovenijo in Evropo, sem se tudi tokrat osredotočila na Evropo, saj ta tabela vsebuje veliko več podatkov kakor prejšnja \verb|euro|, v kateri je bilo precej držav brez podatkov, zato analiza ni bila tako zelo natančna in celovita.
 
-\includepdf[pages={1-3}]{../slike/analizaslo.pdf}
 \includepdf[pages={1-8}]{../slike/analizaeu.pdf}
 
-% \includegraphics{../slike/naselja.pdf}
+
 Korelacija ali korelacijski koeficient je številska mera, ki predstavlja moč linearne povezanosti dveh spremenljivk. 
 
 \end{document}
