@@ -1,7 +1,7 @@
 library(impute)
 
 cat("Rišem analizo Evrope...\n")
-cairo_pdf("slike/analizaeu.pdf", width = 9.27, height = 5.69,
+cairo_pdf("slike/slike-analiza/analizaeu.pdf", width = 9.27, height = 5.69,
           family = "Arial", onefile = TRUE)
 
 #GRUPIRANJE EVROPE

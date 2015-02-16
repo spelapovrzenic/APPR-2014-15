@@ -33,7 +33,7 @@ rregije <- preuredi(regije[-1,], slo)
 
 # Narišimo zemljevid v PDF.
 cat("Rišem zemljevid slovenije...\n")
-cairo_pdf("slike/slovenija1.pdf", width = 7.27, height = 5.69,
+cairo_pdf("slike/slike-zemljevidi/slovenija1.pdf", width = 7.27, height = 5.69,
           family = "Arial", onefile = TRUE)
 
 #Spremenjene koordinate in imena za Slovenijo
@@ -74,7 +74,7 @@ dev.off()
 #PRIMERJAVA MED LETI 2003, 2007, 2012
 
 #A
-cairo_pdf("slike/slovenija2.pdf", width = 7.27, height = 5.69,
+cairo_pdf("slike/slike-zemljevidi/slovenija2.pdf", width = 7.27, height = 5.69,
           family = "Arial", onefile = TRUE)
 slo$vode2003 <- rregije[,2]
 print(spplot(slo, "vode2003", col.regions  = topo.colors(50),
@@ -83,7 +83,7 @@ print(spplot(slo, "vode2003", col.regions  = topo.colors(50),
 dev.off()
 
 #B
-cairo_pdf("slike/slovenija3.pdf", width = 11.27, height = 5.69,
+cairo_pdf("slike/slike-zemljevidi/slovenija3.pdf", width = 11.27, height = 5.69,
           family = "Arial", onefile = TRUE)
 slo$vode2007 <- rregije[,6]
 print(spplot(slo, "vode2007", col.regions  = topo.colors(50), 
@@ -92,7 +92,7 @@ print(spplot(slo, "vode2007", col.regions  = topo.colors(50),
 dev.off()
 
 #C
-cairo_pdf("slike/slovenija4.pdf", width = 11.27, height = 5.69,
+cairo_pdf("slike/slike-zemljevidi/slovenija4.pdf", width = 11.27, height = 5.69,
           family = "Arial", onefile = TRUE)
 slo$vode2012 <- rregije[,11]
 print(spplot(slo, "vode2012", col.regions  = topo.colors(50), 
@@ -145,7 +145,7 @@ imena["United Kingdom"] <- "United\nKingdom"
 
 # Narišimo zemljevid v PDF.
 cat("Rišem zemljevid europe...\n")
-cairo_pdf("slike/europa.pdf", width = 7.27, height = 5.69,
+cairo_pdf("slike/slike-zemljevidi/europa.pdf", width = 7.27, height = 5.69,
           family = "Arial", onefile = TRUE)
 
 rot <- ifelse(imena %in% "Portugal", 90, 0)
@@ -162,7 +162,7 @@ dev.off()
 
 #Preskrba na prebivalca
 cat("Rišem zemljevid europe; preskrba na prebivalca...\n")
-cairo_pdf("slike/europa2.pdf", width = 7.27, height = 5.69,
+cairo_pdf("slike/slike-zemljevidi/europa2.pdf", width = 7.27, height = 5.69,
           family = "Arial", onefile = TRUE)
 m <- match(row.names(eeuro), row.names(prebivalci))
 povprecno.prebivalstvo <- apply(prebivalci[m, c("X2000", "X2010")], 1, mean)
