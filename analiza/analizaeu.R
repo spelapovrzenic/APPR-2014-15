@@ -1,7 +1,7 @@
 library(impute)
 
-cat("Rišem analizo Evrope...\n")
-cairo_pdf("slike/slike-analiza/analizaeu.pdf", width = 9.27, height = 5.69,
+cat("Rišem analizo Evrope - grupiranje...\n")
+cairo_pdf("slike/slike-analiza/analizaeu1.pdf", width = 9.27, height = 5.69,
           family = "Arial", onefile = TRUE)
 
 #GRUPIRANJE EVROPE
@@ -19,11 +19,14 @@ plot(hh, hang=0.1, cex=0.7, main = "Zajem vode v Evropi, na prebivalca",xlab ="A
      sub = "za leta 2002, 2007, 2013")
 rect.hclust(hh,k=7,border="green")
 
-
+dev.off()
 
 #############################
 
 #EVROPA zemljevid
+cat("Rišem analizo Evrope - zemljevid grupiranja...\n")
+cairo_pdf("slike/slike-analiza/analizaeu2.pdf", width = 9.27, height = 5.69,
+          family = "Arial", onefile = TRUE)
 
 source("lib/uvozi.zemljevid.r")
 analiza.izbor <- scale(analiza.izbor)
@@ -63,7 +66,7 @@ legend("bottomleft", col = barve, lty = "solid", cex = 0.5,
        legend = c("skupina 1", "skupina 2", "skupina 3","skupina 4", "skupina 5", "skupina 6",
                   "skupina 7"))
 
-
+dev.off()
 
 #k$size koliko je v posamezni skupini držav
 
@@ -71,6 +74,9 @@ legend("bottomleft", col = barve, lty = "solid", cex = 0.5,
 #GRAF EVROPA
 library(impute)
 
+cat("Rišem analizo Evrope - graf po letih...\n")
+cairo_pdf("slike/slike-analiza/analizaeu3.pdf", width = 9.27, height = 5.69,
+          family = "Arial", onefile = TRUE)
 #za podatke europe
 podatki.EU <- world[as.character(EU$sovereignt),]
 leta <- c(1987, 1992, 1997, 2002, 2007, 2013)
@@ -89,8 +95,12 @@ legend("topright",legend=c("Linerana: lm(količina.vode ~ leta)",
                            "Kvadratna: lm(količina.vode ~ I(leta^2) + leta)")
        ,lty = "solid", cex = 0.8,
        col = c("darkviolet","red"))
+dev.off()
 
 #NAPOVED
+cat("Rišem analizo Evrope - napoved...\n")
+cairo_pdf("slike/slike-analiza/analizaeu4.pdf", width = 9.27, height = 5.69,
+          family = "Arial", onefile = TRUE)
 napoved <- function(x, model){predict(model,data.frame(leta=x))}
 
 plot(leta,vsotaeu2,xlim= c(1987,2040),ylim=c(80,180),xlab="Leta",ylab="Količina vode", 
@@ -106,47 +116,64 @@ legend("bottomleft",legend=c("Linerana napoved",
 #manjši ostanek je bolj natančen
 vsota.kv <- sapply(list(linearna, kvadratna), function(x) sum(x$residuals^2))
 #8.003063e+02 2.089070e+08 (linearna bolj natančna)
-
+dev.off()
 #####################################
 # VSAKA SKUPINA POSEBEJ
 euroana <- apply(analiza.izbor , 1, c)
 leta2 <- c( 2002, 2007, 2013)
 
 #estonia 1
+cat("Rišem analizo Evrope - estonija...\n")
+cairo_pdf("slike/slike-analiza/analizaeu-est.pdf", width = 9.27, height = 5.69,
+          family = "Arial", onefile = TRUE)
 plot(leta2,euroana[,13], xlab="Leta",ylab="Količina zajete vode", main="1.skupina: predstavnica Estonija") #NARAŠČA
 lin0 <- lm(euroana[,13]~leta2)
 abline(lin0, col="blue")
+dev.off()
 
 #2.skupina MEŠANO
 
 #3.skupina - VSE PADAJO, NEKATERE MALO BOL POLOŽNO
 #United Kingdom
+cat("Rišem analizo Evrope - uk...\n")
+cairo_pdf("slike/slike-analiza/analizaeu-uk.pdf", width = 9.27, height = 5.69,
+          family = "Arial", onefile = TRUE)
 plot(leta2,euroana[,16], xlab="Leta",ylab="Količina zajete vode", main="3.skupina: predstavnica Združeno Kraljestvo")
 lin8 <- lm(euroana[,16]~leta2)
 abline(lin8, col="lightblue")
-
+dev.off()
 
 #4.skupina NARAŠČA
 #Slovenija
+cat("Rišem analizo Evrope - slovenija...\n")
+cairo_pdf("slike/slike-analiza/analizaeu-slo.pdf", width = 9.27, height = 5.69,
+          family = "Arial", onefile = TRUE)
 plot(leta2,euroana[,34],xlab="Leta",ylab="Količina zajete vode", main="4. skupina: predstavnica Slovenija") #NARAŠČA
 lin18 <- lm(euroana[,34]~leta2)
 abline(lin18, col="darkviolet")
+dev.off()
 
 #5 (vEČINA) PADA
 #Germany
+cat("Rišem analizo Evrope - nemčija...\n")
+cairo_pdf("slike/slike-analiza/analizaeu-ger.pdf", width = 9.27, height = 5.69,
+          family = "Arial", onefile = TRUE)
 plot(leta2,euroana[,10],, xlab="Leta",ylab="Količina zajete vode", main="5. skupina: predstavnica Nemčija")# PADA
 lin25 <- lm(euroana[,10]~leta2)
 abline(lin25, col="violet")
-
+dev.off()
 
 #6.skipina PADA 
 #France
+cat("Rišem analizo Evrope - francija...\n")
+cairo_pdf("slike/slike-analiza/analizaeu-fr.pdf", width = 9.27, height = 5.69,
+          family = "Arial", onefile = TRUE)
 plot(leta2,euroana[,15], xlab="Leta",ylab="Količina zajete vode", main="6. skupina: predstavnica Francija")
 lin30 <- lm(euroana[,15]~leta2)
 abline(lin30, col="darkgreen")
-
+dev.off()
 
 
 #7.sk MEŠANO
 
-dev.off()
+

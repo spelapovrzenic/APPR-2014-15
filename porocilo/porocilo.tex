@@ -61,10 +61,10 @@ SPREMENLJIVKE!!!!!!!!!!!!
 \newpage
 
 \textbf{1.GRAF: \emph{Porečja, leto 2013}}: Za prvo tabelo, ki govori o porečjih, sem se odločila da bom uporabila stolpični graf (barplot), saj sem želela, da bi iz grafa videli, koliko je porečij v Sloveniji in katera so največja. Izbrala sem si samo podatke za porečja za leto 2013, saj neke bistvene razlike med leti drugače ni.\\
-\textbf{Interpretacija}: Iz grafa lahko vidimo, da povodje Donave in porečje Save priskrbita daleč največjo količino dobavljene vode.
+\textbf{Interpretacija}: Iz grafa lahko vidimo, da Povodje Donave priskrbi daleč največjo količino dobavljene vode, takoj zatem pa v povodju Donave največ priskrbi porečje Save
 
 \makebox[\textwidth][c]{
-\includegraphics[width=1.3\textwidth]{../slike/slike-grafi/porecja.pdf}
+\includegraphics[width=1.25\textwidth]{../slike/slike-grafi/porecja.pdf}
 }
 
 \newpage
@@ -153,7 +153,7 @@ Iz zemljevida lahko vidimo, da ima Norveška daleč največjo preskrbo na prebiv
 
 Če na kratko povzamem ugotovitve iz prejšnjih faz za Slovenijo:
 \begin{enumerate} 
-\item{Povodje Donave in porečje Save priskrbita daleč največjo količino dobavljene vode.}
+\item{Povodje Donave priskrbi daleč največjo količino dobavljene vode, takoj zatem pa v povodju Donave največ priskrbi porečje Save}
 \item{Preskrba z vodo med leti 2008-2013, je bila največja v letu 2009, nato pa je v dveh letih močno padla in v 2011 dosegla najnižjo raven, po letu 2011 pa je spet začela preskrba naraščati.}
 \item{Med leti 2002-2012 ima največjo povprečno porabo vode Primorska, Gorenjska in Osrednja Slovenija, najmanjšo porabo pa imajo na Koroškem in v Pomurju.}
 \item{V letu 2012 ima Gorenjska, Obalno-kraška, Goriška in Savinjska regija največjo porabo na prebivalca, najmanjšo pa Koroška.}
@@ -163,7 +163,7 @@ Iz zemljevida lahko vidimo, da ima Norveška daleč največjo preskrbo na prebiv
 V prejšnjih fazah sem torej ugotovila že mnogo stvari, ki so me na samem začetku zanimale, tako kakšne so razlike porabe vode po regijah ter iz katerih porečij dobimo največ vode. Če pa se ustavim pri \emph{2. ugotovitvi} (torej da je bila preskrba z vodo, 2008-2013, največja v letu 2009, nato je v dveh letih močno padla in v 2011 dosegla minimalno vrednost, nato pa po letu 2011 spet začela naraščati), pa lahko opazim, da ta ugotovitev potrebuje še dodatno analizo, namreč zanima me, kaj je glavni ralog, da je bil v letu 2011 tak velik padec preskrbe vode. Ker je po mojem mnenju količina vode v veliki odvisnosti povezana z padavinami, sem se odočila, da to mojo hipotezo tudi preverim. Uvozila sem novo tabelo iz spletne strani statističnega urada: \url{http://pxweb.stat.si/pxweb/Dialog/varval.asp?ma=0156104S&ti=&path=../Database/Okolje/01_ozemlje_podnebje/10_01561_podnebni_kazalniki/&lang=2}, ki prikazuje \textbf{povprečne letne in mesečne količine padavin letno v Sloveniji}. Tabelavsebuje SPREMENLJJIVKE!!!!!!!!!!!!!!!!!!!:::::::::::::::::::::::::::::: Tako sem iz te table, naredila sledeči graf:
 \newpage
 
-\textbf{5.GRAF:\emph{Povprečna letna količina padavin v Sloveniji od leta 2008 do 2013}}
+\textbf{6.GRAF:\emph{Povprečna letna količina padavin v Sloveniji od leta 2008 do 2013}}
 
 \makebox[\textwidth][c]{
 \includegraphics[width=1.2\textwidth]{../slike/slike-grafi/padavine.pdf}
@@ -206,7 +206,7 @@ Za nasledenjo napredno analizo porečij, sem se odločila, da bi porečja razvrs
 \includegraphics[width=1.5\textwidth]{../slike/slike-analiza/analizaslo1.pdf}
 }
 
-Za hierarhično razvrščanje sem uporabila \verb|hclust| ter Wardovo metodo minimalne variance - \verb|ward.D2|, ki uporablja analizo variance za oceno razdalje med skupinami. Nato sem narisala graf in zatem podatke uvrstila v 6 skupin. Vidimo lahko, da je povodje Donave največe, nato porečje Save. Nato sledijo naslednja skupina, ki vsebuje Ljubljansko Savo, porečje Drave in povodje Jadranskega morja, nato pa sledita še dve skupini manjši rek.
+Za hierarhično razvrščanje sem uporabila \verb|hclust| ter Wardovo metodo minimalne variance - \verb|ward.D2|, ki uporablja analizo variance za oceno razdalje med skupinami. Nato sem narisala graf in zatem podatke uvrstila v 6 skupin. Vidimo lahko, da je povodje Donave najpomembnejše, nato porečje Save. Nato sledijo naslednja skupina, ki vsebuje Ljubljansko Savo, porečje Drave in povodje Jadranskega morja, nato pa sledita še dve skupini manjši rek.
 
 
 \newpage
@@ -220,24 +220,33 @@ Za konec analize porečij, pa sem se odločila, da pogledam še naša največja 
 \begin{itemize}
 \item{\textbf{Slovenija - skupaj}: največjo korelacijo ima z Donavo, Dravo, Savo in Muro. Torej če se količina teh rek poveča, se poveča tudi celotna količina vode iz Slovenije, torej so zelo linearno odvisne.}
 
-\item{\textbf{Povodje Donave}: največjo korelacijo ima z Savo, Dravo in Muro. To je res, saj je po količini vode Sava največji pritok Donave, takoj za njo pa Drava, Mura pa levi pritok Donave.}
+\item{\textbf{Povodje Donave}: največjo korelacijo ima z Savo, Dravo in Muro. To je res, saj je po količini vode Sava največji pritok Donave, takoj za njo pa Drava, Mura pa levi pritok Drave, ta pa se, kot smo ravno omenili, zliva v Donavo.}
 
 \item{\textbf{Porečje Drave}: največjo korelacijo ima z Muro, saj se Mura zliva v Dravo, torej sta res linearno odvisni.}
 
 \item{\textbf{Povodje Jadranskega morja}: ima največjo korelacijo z Sočo, kar 0.86, to je tudi pravilno, saj se Soča zliva v povodje Jadranskega morja.}
 \end{itemize}
 
+\newpage
+\subsection{Napredna analiza Evrope}
+Ker sem imela v prejšnjih fazah malo težav pri evropski tabeli, saj je bilo precej držav brez podatkov, je bila analiza zato nenatančna in posledično je bilo zelo težko dejansko primerjati med seboj države, sem se odločila, da uvozim novo tabelo. Uvozila sem jo iz spletne strani \url{http://data.worldbank.org/indicator/ER.H2O.FWTL.K3/countries/1W?display=default}, ki prikazuje \textbf{podatke o količini zajema vode} (to je poraba + izguba vode skupaj), za cel svet. Tabelo sem najprej seveda omejila samo na države Evrope, podatke pa sem nato delila s povprečnim številom prebivalcev vsake države, med leti 1980 in 2020, da lahko dejansko primerjam države med seboj.\\
+
+Najprej sem se odločila, da države razvrstim v skupine. Uporabila sem \verb|hclust| ter Wardovo metodo minimalne variance, ki uporablja analizo variance za oceno razdalje med skupinami. Izbrala sem si leta 2002, 2007 in 2013, saj so le ti vsebovali večina podatkov za vsako državo. Nato sem narisala graf in zatem podatke uvrstila v 7 skupin.
+
+\makebox[\textwidth][c]{
+\includegraphics[width=1.4\textwidth]{../slike/slike-analiza/analizaeu1.pdf}
+}
+
+\newpage
+Odločila sem se, da grupiranje prikažem tudi na zemljevidu, da bo še toliko bolj pregledno, katere države so skupaj.
+
+\makebox[\textwidth][c]{
+\includegraphics[width=1.4\textwidth]{../slike/slike-analiza/analizaeu2.pdf}
+}
+
+Sedaj ko sem razporedila evropske države po skupinah, me zanima ali za podobne države v isti skupini dobiš podobne modele, oziroma če se razlikujejo med skupinami. Iz vsake skupine bom nato izbrala eno državo, tisto najbolj tipično za svojo skupino in naredila graf z modelom zanjo.\\
 
 
-
-
-% Korelacija ali korelacijski koeficient je številska mera, ki predstavlja moč linearne povezanosti dveh spremenljivk. 
-% EVROPAAA
-% Uvozila novo tabelo, iz spletne strani \url{http://data.worldbank.org/indicator/ER.H2O.FWTL.K3/countries/1W?display=default}, ki prikazuje \textbf{podatke o količini zajema vode} (to je poraba + izguba vode skupaj), za cel svet. Ker sem že v prejšnjih fazah analizirala Slovenijo in Evropo, sem se tudi tokrat osredotočila na Evropo, saj ta tabela vsebuje veliko več podatkov kakor prejšnja \verb|euro|, v kateri je bilo precej držav brez podatkov, zato analiza ni bila tako zelo natančna in celovita.
-% 
-% \includepdf[pages={1-8}]{../slike/analizaeu.pdf}
-% 
-% 
 
 
 \end{document}
