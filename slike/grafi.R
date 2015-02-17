@@ -9,7 +9,7 @@ reke <- (porecja1[!na.vrstice1,])[12]
 o1<- order(reke, decreasing = TRUE)
 barplot(reke[o1,],  ylab="količina dobavljene vode (milijon m3)", las = 2,
         main="Porečja, leto 2013", ylim=c(0,140),beside=TRUE, 
-        names.arg = rownames(porecja1[!na.vrstice1,])[o1], cex.names = 0.5,
+        names.arg = rownames(porecja1[!na.vrstice1,])[o1], cex.names = 0.4,
         col = rainbow(sum(!na.vrstice1)))
 
 dev.off()
