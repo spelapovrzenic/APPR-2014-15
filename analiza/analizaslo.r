@@ -39,10 +39,10 @@ library(mgcv)
 loess <- loess(skupaj~sleto) #za lokalno prilagajanje;NAPOVEDNI MODEL
 curve(predict(loess, data.frame(sleto=x)), add = TRUE, col = "green")
 
-legend("topright",legend=c("Linerana: lm(skupaj ~ leto)", 
-                    "Kvadratna: lm(skupaj ~ I(leto^2) + leto)",
-                    "Loess: loess(skupaj~leto)"),lty = "solid", cex = 0.8,
-       col = c("blue","red", "green"))
+legend("topright",legend=c("Loess: loess(skupaj~leto)",
+                           "Linerana: lm(skupaj ~ leto)", 
+                    "Kvadratna: lm(skupaj ~ I(leto^2) + leto)"),lty = "solid", cex = 0.8,
+       col = c("green","blue","red"))
 
 #manjši ostanek je bolj natančen
 vsota.kvadratov <- sapply(list(linearna, kvadratna, loess), function(x) sum(x$residuals^2))
@@ -88,41 +88,4 @@ pairs(reke, lower.panel = panel.smooth, upper.panel = panel.cor,
 
 
 dev.off()
-
-
-#KAR NEBOM UPORABILA:
-# donava <- t[,2]
-# plot(donava, skupaj, xlab="Povodje Donave",ylab="Slovenija - skupaj")
-# linearna <- lm(skupaj~donava)
-# abline(linearna, col="blue")
-# 
-# sava <- t[,3]
-# plot(sava,skupaj, xlab="Porečje Save",ylab="Slovenija - skupaj")
-# kvadratna <- lm(skupaj ~ I(sava^2) + sava)
-# curve(predict(kvadratna, data.frame(sava=x)), add = TRUE, col = "red")
-# 
-# drava<-t[,14]
-# plot(drava, skupaj,xlab="Porečje Drave",ylab="Slovenija - skupaj")
-# linearna <- lm(skupaj~drava)
-# abline(linearna, col="blue")
-
-# soca<-t[,33]
-# morje <- t[,28]
-# plot(soca,morje ,xlab="Povodje Soče",ylab="Povodje Jadranskega morja")
-# linearna <- lm(morje~soca)
-# abline(linearna, col="blue")
-
-
-# #sava drava mura se zlivajo v povodje donavo[2]
-# #Porečje Drave
-# plot(drava, donava, xlab="Porečje Drave",ylab="Povodje Donave")
-# linearna <- lm(donava~drava)
-# abline(linearna, col="blue")
-# 
-# #Porečje Save
-# plot(sava,donava,xlab="Porečje Save",ylab="Povodje Donave") 
-# kvadratna <- lm(donava ~ I(sava^2) + sava)
-# curve(predict(kvadratna, data.frame(sava=x)), add = TRUE, col = "red")
-
-
 

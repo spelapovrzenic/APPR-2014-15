@@ -26,7 +26,7 @@ dev.off()
 
 #REGIJE(3)
 cat("Uvažam graf regije...\n")
-cairo_pdf("slike/slike-grafi/regije.pdf", width = 9.27, height = 11.69,
+cairo_pdf("slike/slike-grafi/regije.pdf", width = 9.27, height = 9.69,
           family = "Arial", onefile = TRUE)
 
 o <- order(regije[,11], decreasing = TRUE)

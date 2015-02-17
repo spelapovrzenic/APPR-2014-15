@@ -6,6 +6,7 @@
 \usepackage{hyperref}
 \usepackage{pdfpages}
 \usepackage{breakurl}
+\usepackage{amsmath}
 
 \pagestyle{plain}
 \begin{document}
@@ -79,7 +80,7 @@ SPREMENLJIVKE!!!!!!!!!!!!
 \textbf{Interpretacija}: Opazimo lahko, da ima Gorenjska, Obalno-kraška, Goriška in Savinjska regija največjo porabo na prebivalca. Najmanjšo porabo pa ima Koroška.\\
 
 \makebox[\textwidth][c]{
-\includegraphics[width=\textwidth]{../slike/slike-grafi/regije.pdf}
+\includegraphics[width=1.2\textwidth]{../slike/slike-grafi/regije.pdf}
 }
 
 \newpage
@@ -168,19 +169,63 @@ V prejšnjih fazah sem torej ugotovila že mnogo stvari, ki so me na samem zače
 \includegraphics[width=1.2\textwidth]{../slike/slike-grafi/padavine.pdf}
 }
 
-Že takoj lahko Vidimo, da je naš graf o padavinah zelo podoben 2. grafu, grafu o preskrbi, torej iz tega grafa o padavinah lahko razberemo, da je povprečna letna količina padavin v Sloveniji drastično padla leta 2011, potem pa je količina naraščala. Točno tako je bilo tudi pri preskrbi Slovenije z vodo. Torej je preskrba v letu 2011 dosegla minimalno vrednost, zaradi minimalne vrednosti padavin.  Tako sem zgornjo hipotezo potrdila, torej, da je količina vode v veliki odvisnosti povezana z padavinami in tako tudi preskrba Slovenije z vodo. \emph{Večja kot bo povprečna letna količina padavin, večja bo preskrba z vodo}.
+Že takoj lahko vidimo, da je naš graf o padavinah zelo podoben 2. grafu, grafu o preskrbi, torej iz tega grafa o padavinah lahko razberemo, da je povprečna letna količina padavin v Sloveniji drastično padla leta 2011, potem pa je količina naraščala. Točno tako je bilo tudi pri preskrbi Slovenije z vodo. Torej je preskrba v letu 2011 dosegla minimalno vrednost, zaradi minimalne vrednosti padavin.  Tako sem zgornjo hipotezo potrdila, torej, da je količina vode v veliki odvisnosti povezana z padavinami in tako tudi preskrba Slovenije z vodo. \emph{Večja kot bo povprečna letna količina padavin, večja bo preskrba z vodo}.
 
 \newpage
 
+Ker so vse ugotovitve iz prejšnjih faz popolnoma zaključene, sem se odločila, da bi vseeno lahko še kaj dodatnega analizrala tudi glede količine vode, ki jo dobimo iz porečij in pa kako so ta porečja med seboj povezana, saj sem o porečjih na splošno prej dobila zelo malo ugotovitev.\\
+
+Najprej sem se odločila, da bom iz že prej uporabljene tabele \verb|porecja|, analizirala, koliko vode letno dobimo po porečji ter kako se bo ta količina spreminjala z časom. Najprej sem narisala graf:\\
+\textbf{6.GRAF: \emph{Količina vode dobljene po porečjih med leti 2002 do 2013}}
+
+\makebox[\textwidth][c]{
+\includegraphics[width=1.4\textwidth]{../slike/slike-analiza/analizaslo2.pdf}
+}
+
+Graf pa sem tudi regresijsko analizirala z tremi modeli: \emph{linearni, kvadratni} in \emph{lokalni model loess} (za lokalno prilagajanje). Regresija meri odvisnost dveh slučajnih spremenljivk, torej kakšen vpliv ima ena na drugo.\\
+Torej kaj nam te modeli povejo?
+\begin{itemize}
+\item{\emph{LOKALNI MODEL - loess:} Model za lokalno prilagajanje, se uporablja predvsem za glajenje krivulj. Podano imamo množico točk x in želimo povleči zglajeno krivuljo, ki se bo najbolje prilagajala našim točkam. Na našem grafu lahko vidimo, da je zelena krivulja, taka krivulja, ki se našemu grafu najbolje lokalno prilega.}
+\newpage
+\item{\emph{LINEARNI MODEL:} Če imamo linearni model, iščemo premico oblike $y = kx + n$. Iz našega grafa lahko vidimo, da je enačba naše modre linearne premice: $y = -1123x + 2423818$ , kjer je x leto in y količina vode celotne Slovenije. Enačbo premice oz. podatka za začetno vrednosti in koeficient, sem dobila s pomočjo spremenljivke \verb|linearna|, ki je nastala med iskanjem linearne zveze. Torej padajoča premica nam pove, da vrednosti količine vode z leti na splošno pada.}
+
+\item{\emph{KVADRATNI MODEL:} Če imamo kvadratni model, iščemo premico oblike $y = a_0 + a_1x +a_2x^2$. Iz našega grafa lahko vidimo, da je enačba naše rdeče krivulje, ki se najbolje prilega našemu grafu: $y = 709026300 - 705087.9x + 175.3x^2$. Enačbo krivulje sem dobila s pomočjo spremenljivke \verb|kvadratna|. Iz slike lahko vidimo, da krivulja pada do njene minimalne vrednosti 2011, nato pa začne rasti.}
+\end{itemize}
+
+Graf imamo, sedaj pa me zanima, kateri model, linearni ali kvadratni, je tisti, ki se bolje prilega mojim podatkom in je tako bolj točen. Iz grafa lako opazim, da se kvadratna veliko bolj prilega točkam, kot linearna, vendar lahko mojo hipotezo preverim še z izračunom odstopanja napovedanih vrednosti od dejanskih, s pomočjo \verb|vsota.kvadratov|, ki sem jo definirala v \verb|analizaslo.r|. Te vrednosti so preračunane vsote kvadratov razdalj od napovedanih do dejanskih vrednosti. Za linearni model dobimo vrednost 249937183, za kvadratni model pa 208907001. Tisti z manjšo vrednostjo, se mojim podatkom bolje prilage, torej je kvadratni model boljši od linearnega. Če pa pogledamo še loess model, pa se z vrednostjo 74889334, daleč najbolje prilagaja od obeh dveh.\\
+
+Torej če se sedaj osredotočim na lokalni model loess, ki se najbolje prilagaja, lahko vidim, da so vrednosti od 2002 do 2005 drastično padle, nato so se do leta 2007 malo dvignile, in nato do leta 2012 naprej padale. Mislim, da na ta drastični padec leta 2005 upliva to, da so v času pred krizo, do leta 2007, 2008, na veliko obnavljajli vodovode, torej so bile manjše izgube na vododvodnem omrežju, tako so bile manjše izgube vode, posledično se je zmanjšala količina vode dobljene iz porečij. Po krizi, torej po letu 2008 pa vrednosti spet padajo, eden izmed možnih razlogov za to bi bil tudi to, da se je v tem času veliko tovarn, obrti, podjetij propadlo, zaprlo svojo obrt in  posledično se je porabilo manj vode in tako je količina dobljene vode iz porečij padala.
 
 
 
 
 
 
-Za določanje skupin v podatkih se uporabljajo metode
-razvrščanja v skupine. Pri metodah združevanja lahko izid
-slikovno predstavimo z drevesom razvrščanja – dendrogramom.
+
+% dost obnavla vodovod, puščale cevi, manjše izgube
+% 
+% vedno več da obnoviš, vodo lahko precistiš, po zakonu npr nuklearka rabi vodo da ladi reaktor, vzamejo vodo in jo porabjo in jo vrnejo nazaj,
+% iz kanalizacije, prečistijo v reko
+% manj pitne vode porabiš, vodo za tuširanje porabiš
+% 
+% veik več folka porabi deževnico, za vrtove, va voda k jo porabmo se vrne v reko
+% vedno manj idustrije usnjarne, propada  ...
+% 
+% 2004 lahko ful obnovil vodovode do 2008 kriza podjetja propadala, industrija manj obnavljali vodovode
+% 
+% 
+% drava mura iz austreji voda
+% 
+% sava navečji upliv na donavo največ vode se steče tja,
+% največja po količini vode, ki se zlijejo v donavo
+% 
+% donava p ANJ, MURA PA SPLO MANJ
+% MURA SE ZLIJE V DRAVO
+
+
+% Za določanje skupin v podatkih se uporabljajo metode
+% razvrščanja v skupine. Pri metodah združevanja lahko izid
+% slikovno predstavimo z drevesom razvrščanja – dendrogramom.
 
 
 % Korelacija ali korelacijski koeficient je številska mera, ki predstavlja moč linearne povezanosti dveh spremenljivk. 
