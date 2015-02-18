@@ -17,8 +17,6 @@ dev.off()
 ############################################################################
 
 #SLOVENIJA KOLIČINA PO LETIH PADA
-#regresijska premica krivulj ki bi se podatkom najboljše prilegala.
-#Če je linearna regresija iščemo premico. y = k*x+n
 
 cat("Rišem analizo Slovenije - graf po letih ...\n")
 cairo_pdf("slike/slike-analiza/analizaslo2.pdf", width = 9.27, height = 5.69,
@@ -68,21 +66,11 @@ panel.cor <- function(x, y, digits = 2, prefix = "", cex.cor, na.rm = TRUE, ...)
 }
 
 #NAJVEČJA - povodja porečja
-#Korelacija ali korelacijski koeficient je številska mera, ki predstavlja moč 
-#linearne povezanosti dveh spremenljivk. 
 
 reke <- t[,c(1,2,14,3,23,28,33)]
 pairs(reke, lower.panel = panel.smooth, upper.panel = panel.cor, 
       main="Korelacije med največjimi povodji, 2002-2013")
 
-# #save
-# vsesave<-t[,c(3,4,6,8,10,12)]
-# pairs(vsesave, lower.panel = panel.smooth, upper.panel = panel.cor)
-
-# #drave
-# vsedrave<-t[,c(14,16,17,18,19,20,22)]
-# analiza.drave <- impute.knn(as.matrix(vsedrave[apply(is.na(vsedrave), 1, sum) <= 1,]))$data
-# pairs(analiza.drave, lower.panel = panel.smooth, upper.panel = panel.cor)
 
 ##################################################
 

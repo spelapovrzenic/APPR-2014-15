@@ -216,21 +216,7 @@ for (i in 1:n) {
 }
 dev.off()
 
-#############################################
-cat("Rišem analizo Evrope - razlike med leti...\n")
-cairo_pdf("slike/slike-analiza/analizaeu6.pdf", width = 9.27, height = 5.69,
-          family = "Arial", onefile = TRUE)
 
-analiza.izbor1 <- impute.knn(as.matrix(izbor[apply(is.na(izbor), 1, sum) <= 1,]))$data
-analiza.izbor1 <- data.frame(analiza.izbor1,
-                            razlika.2002.2007 = analiza.izbor1[,"X2007"] - analiza.izbor1[,"X2013"],
-                            razlika.2007.2013 = analiza.izbor1[,"X2013"] - analiza.izbor1[,"X2007"])
-
-hh1 <- hclust(dist(scale(analiza.izbor1))) # podatki niso več neposredno primerljivi, zato jih je potrebno skalirati
-plot(hh1, hang=0.1, cex=0.7, main = "Razlike zajema vode v Evropi, na prebivalca",xlab ="Analiza",ylab=NULL,
-     sub = "razlike med 2002 in 2007 ter 2007 in 2013")
-rect.hclust(hh1,k=6,border="darkorange")
-dev.off()
 #########################################
 # VSAKA SKUPINA POSEBEJ
 euroana <- apply(analiza.izbor , 1, c)
