@@ -25,7 +25,7 @@ sleto <-c(2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013)
 t <- apply(porecja, 1, c)
 
 skupaj <- t[,1]
-plot(sleto,skupaj, xlab="Leto",ylab="Slovenija - skupaj", 
+plot(sleto,skupaj, xlab="Leto",ylab="Slovenija - skupaj (tisoč m^3)", 
      main="Količina vode dobljena po porečjih, 2002-2013")
 linearna <- lm(skupaj~sleto)
 abline(linearna, col="blue")

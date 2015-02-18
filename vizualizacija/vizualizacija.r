@@ -64,7 +64,7 @@ legend("bottomright", legend = round(seq(min.povprecje, max.povprecje, (max.povp
        fill = rgb(1, 1, (6:1)/6), bg = "white")
 
 text(koordinate1,labels=imena1,cex=0.4)
-title("Povprečna poraba vode na prebivalca")
+title("Povprečna poraba vode na prebivalca (m^3/prebivalca)")
 
 
 dev.off()
@@ -78,7 +78,7 @@ cairo_pdf("slike/slike-zemljevidi/slovenija2.pdf", width = 7.27, height = 5.69,
           family = "Arial", onefile = TRUE)
 slo$vode2003 <- rregije[,2]
 print(spplot(slo, "vode2003", col.regions  = topo.colors(50),
-             main = "Poraba vode na prebivalca (leto 2003)",
+             main = "Poraba vode na prebivalca za leto 2003 (m^3/prebivalca)",
              sp.layout = list(list("sp.text", koordinate1,imena1, cex = 0.5))))
 dev.off()
 
@@ -87,7 +87,7 @@ cairo_pdf("slike/slike-zemljevidi/slovenija3.pdf", width = 11.27, height = 5.69,
           family = "Arial", onefile = TRUE)
 slo$vode2007 <- rregije[,6]
 print(spplot(slo, "vode2007", col.regions  = topo.colors(50), 
-             main = "Poraba vode na prebivalca (leto 2007)",
+             main = "Poraba vode na prebivalca za leto 2007 (m^3/prebivalca)",
       sp.layout = list(list("sp.text", koordinate1,imena1, cex = 0.7))))
 dev.off()
 
@@ -96,7 +96,7 @@ cairo_pdf("slike/slike-zemljevidi/slovenija4.pdf", width = 11.27, height = 5.69,
           family = "Arial", onefile = TRUE)
 slo$vode2012 <- rregije[,11]
 print(spplot(slo, "vode2012", col.regions  = topo.colors(50), 
-             main = "Poraba vode na prebivalca (leto 2012)",
+             main = "Poraba vode na prebivalca za leto 2012 (m^3/prebivalca)",
       sp.layout = list(list("sp.text", koordinate1,imena1, cex = 0.7))))
 
 dev.off()
@@ -151,7 +151,7 @@ cairo_pdf("slike/slike-zemljevidi/europa.pdf", width = 7.27, height = 5.69,
 rot <- ifelse(imena %in% "Portugal", 90, 0)
 EU$voda2005 <- eeuro[,6]
 print(spplot(EU, "voda2005", xlim=c(-25, 40), ylim=c(33, 73),
-             main = "Preskrba z vodo v Evropi (leto 2005)",
+             main = "Preskrba z vodo v Evropi za leto 2005 (milijon m^3)",
              col.regions = topo.colors(100),col="dimgrey",
              sp.layout = list(
                list("sp.polygons", EU[is.na(eeuro[,6]),], fill = "white"),
@@ -169,7 +169,7 @@ povprecno.prebivalstvo <- apply(prebivalci[m, c("X2000", "X2010")], 1, mean)
 EU$poraba05 <- eeuro$X2005/povprecno.prebivalstvo
 
 print(spplot(EU, "poraba05", xlim=c(-25, 40), ylim=c(33, 73),
-             main = "Povprečna preskrba z vodo v Evropi na prebivalca (leto 2005)",
+             main = "Povprečna preskrba z vodo v Evropi na prebivalca za leto 2005 (milijon m^3)",
              col.regions = topo.colors(100),
              sp.layout = list(
                list("sp.polygons", EU[is.na(eeuro[,6]),], fill = "white"),

@@ -37,7 +37,8 @@ drzavee <- row.names(analiza.izbor)
 m <- match(svet$name_long, drzavee)
 barve <- rainbow(7)
 plot(svet, col=ifelse(is.na(m), "grey", barve[cutree(hh, k = 7)[m]]),
-     xlim=c(-12, 35), ylim=c(34, 70), main="Evropa po skupinah glede na količino zajema vode")
+     xlim=c(-12, 35), ylim=c(34, 70), 
+     main="Evropa po skupinah glede na količino zajema vode (milijarda m^3/prebivalca)")
 
 
 EUU <- svet[svet$name_long %in% drzavee,]
@@ -105,7 +106,7 @@ cairo_pdf("slike/slike-analiza/analizaeu4.pdf", width = 9.27, height = 5.69,
           family = "Arial", onefile = TRUE)
 napoved <- function(x, model){predict(model,data.frame(leta=x))}
 
-plot(leta,vsotaeu2,xlim= c(1987,2040),ylim=c(80,180),xlab="Leta",ylab="Količina vode", 
+plot(leta,vsotaeu2,xlim= c(1987,2040),ylim=c(80,180),xlab="Leta",ylab="Količina vode (milijarda m^3/prebivalca)", 
      main="Napoved zajete vode (poraba + izguba) za Evropo do leta 2040")
 curve(napoved(x, lin),col="darkviolet",add=TRUE)
 curve(napoved(x, kv),col="red",add=TRUE)
@@ -131,7 +132,8 @@ drzave <- names(which(skupine == sk))
 n <- length(drzave)
 barve <- rainbow(n)
 leta <- c(2002, 2007, 2013)
-plot(range(leta), range(izbor[drzave,], na.rm = TRUE), "n",main="skupina1",xlab="Leta",ylab="Količina vode")
+plot(range(leta), range(izbor[drzave,], na.rm = TRUE), "n",main="Skupina1",xlab="Leta",
+     ylab="Količina vode (milijarda m^3/prebivalca)")
 for (i in 1:n) {
   points(leta, izbor[drzave[i],], col = barve[i])
   lines(leta, izbor[drzave[i],], col = barve[i])
@@ -144,7 +146,8 @@ drzave <- names(which(skupine == sk))
 n <- length(drzave)
 barve <- rainbow(n)
 leta <- c(2002, 2007, 2013)
-plot(range(leta), range(izbor[drzave,], na.rm = TRUE), "n",main="skupina2",xlab="Leta",ylab="Količina vode")
+plot(range(leta), range(izbor[drzave,], na.rm = TRUE), "n",main="skupina2",xlab="Leta",
+     ylab="Količina vode (milijarda m^3/prebivalca)")
 for (i in 1:n) {
   points(leta, izbor[drzave[i],], col = barve[i])
   lines(leta, izbor[drzave[i],], col = barve[i])
@@ -157,7 +160,8 @@ drzave <- names(which(skupine == sk))
 n <- length(drzave)
 barve <- rainbow(n)
 leta <- c(2002, 2007, 2013)
-plot(range(leta), range(izbor[drzave,], na.rm = TRUE), "n",main="skupina3",xlab="Leta",ylab="Količina vode")
+plot(range(leta), range(izbor[drzave,], na.rm = TRUE), "n",main="skupina3",xlab="Leta",
+     ylab="Količina vode (milijarda m^3/prebivalca)")
 for (i in 1:n) {
   points(leta, izbor[drzave[i],], col = barve[i])
   lines(leta, izbor[drzave[i],], col = barve[i])
@@ -170,7 +174,8 @@ drzave <- names(which(skupine == sk))
 n <- length(drzave)
 barve <- rainbow(n)
 leta <- c(2002, 2007, 2013)
-plot(range(leta), range(izbor[drzave,], na.rm = TRUE), "n",main="skupina4",xlab="Leta",ylab="Količina vode")
+plot(range(leta), range(izbor[drzave,], na.rm = TRUE), "n",main="skupina4",xlab="Leta",
+     ylab="Količina vode (milijarda m^3/prebivalca)")
 for (i in 1:n) {
   points(leta, izbor[drzave[i],], col = barve[i])
   lines(leta, izbor[drzave[i],], col = barve[i])
@@ -183,7 +188,8 @@ drzave <- names(which(skupine == sk))
 n <- length(drzave)
 barve <- rainbow(n)
 leta <- c(2002, 2007, 2013)
-plot(range(leta), range(izbor[drzave,], na.rm = TRUE), "n",main="skupina5",xlab="Leta",ylab="Količina vode")
+plot(range(leta), range(izbor[drzave,], na.rm = TRUE), "n",main="skupina5",xlab="Leta",
+     ylab="Količina vode (milijarda m^3/prebivalca)")
 for (i in 1:n) {
   points(leta, izbor[drzave[i],], col = barve[i])
   lines(leta, izbor[drzave[i],], col = barve[i])
@@ -196,7 +202,8 @@ drzave <- names(which(skupine == sk))
 n <- length(drzave)
 barve <- rainbow(n)
 leta <- c(2002, 2007, 2013)
-plot(range(leta), range(izbor[drzave,], na.rm = TRUE), "n",main="skupina6",xlab="Leta",ylab="Količina vode")
+plot(range(leta), range(izbor[drzave,], na.rm = TRUE), "n",main="skupina6",xlab="Leta",
+     ylab="Količina vode (milijarda m^3/prebivalca)")
 for (i in 1:n) {
   points(leta, izbor[drzave[i],], col = barve[i])
   lines(leta, izbor[drzave[i],], col = barve[i])
@@ -209,7 +216,8 @@ drzave <- names(which(skupine == sk))
 n <- length(drzave)
 barve <- rainbow(n)
 leta <- c(2002, 2007, 2013)
-plot(range(leta), range(izbor[drzave,], na.rm = TRUE), "n",main="skupina7",xlab="Leta",ylab="Količina vode")
+plot(range(leta), range(izbor[drzave,], na.rm = TRUE), "n",main="skupina7",xlab="Leta",
+     ylab="Količina vode (milijarda m^3/prebivalca)")
 for (i in 1:n) {
   points(leta, izbor[drzave[i],], col = barve[i])
   lines(leta, izbor[drzave[i],], col = barve[i])
@@ -226,7 +234,8 @@ leta2 <- c( 2002, 2007, 2013)
 cat("Rišem analizo Evrope - slovenija...\n")
 cairo_pdf("slike/slike-analiza/analizaeu-slo.pdf", width = 5.27, height = 5.69,
           family = "Arial", onefile = TRUE)
-plot(leta2,euroana[,34],xlab="Leta",ylab="Količina zajete vode", main="7. skupina: predstavnica Slovenija") #NARAŠČA
+plot(leta2,euroana[,34],xlab="Leta",ylab="Količina zajete vode (milijarda m^3/prebivalca)", 
+     main="7. skupina: predstavnica Slovenija") #NARAŠČA
 lin18 <- lm(euroana[,34]~leta2)
 abline(lin18, col="darkviolet")
 dev.off()
@@ -236,7 +245,8 @@ dev.off()
 cat("Rišem analizo Evrope - nemčija...\n")
 cairo_pdf("slike/slike-analiza/analizaeu-ger.pdf", width = 5.27, height = 5.69,
           family = "Arial", onefile = TRUE)
-plot(leta2,euroana[,10],, xlab="Leta",ylab="Količina zajete vode", main="2. skupina: predstavnica Nemčija")# PADA
+plot(leta2,euroana[,10],, xlab="Leta",ylab="Količina zajete vode (milijarda m^3/prebivalca)", 
+     main="2. skupina: predstavnica Nemčija")# PADA
 lin25 <- lm(euroana[,10]~leta2)
 abline(lin25, col="cyan")
 dev.off()
