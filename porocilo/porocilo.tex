@@ -176,7 +176,7 @@ V prejšnjih fazah sem torej ugotovila že mnogo stvari, ki so me na samem zače
 Ker so vse ugotovitve iz prejšnjih faz popolnoma zaključene, sem se odločila, da bi vseeno lahko še kaj dodatnega analizrala tudi glede količine vode, ki jo dobimo iz porečij in pa kako so ta porečja med seboj povezana, saj sem o porečjih na splošno prej dobila zelo malo ugotovitev.\\
 
 Najprej sem se odločila, da bom iz že prej uporabljene tabele \verb|porecja|, analizirala, koliko vode letno dobimo po porečji ter kako se bo ta količina spreminjala z časom. Najprej sem narisala graf:\\
-\textbf{6.GRAF: \emph{Količina vode dobljene po porečjih med leti 2002 do 2013}}
+\textbf{7.GRAF: \emph{Količina vode dobljene po porečjih med leti 2002 do 2013}}
 
 \makebox[\textwidth][c]{
 \includegraphics[width=1.4\textwidth]{../slike/slike-analiza/analizaslo2.pdf}
@@ -187,9 +187,9 @@ Torej kaj nam te modeli povejo?
 \begin{itemize}
 \item{\emph{LOKALNI MODEL - loess:} Model za lokalno prilagajanje, se uporablja predvsem za glajenje krivulj. Podano imamo množico točk x in želimo povleči zglajeno krivuljo, ki se bo najbolje prilagajala našim točkam. Na našem grafu lahko vidimo, da je zelena krivulja, taka krivulja, ki se našemu grafu najbolje lokalno prilega.}
 \newpage
-\item{\emph{LINEARNI MODEL:} Če imamo linearni model, iščemo premico oblike $y = kx + n$. Iz našega grafa lahko vidimo, da je enačba naše modre linearne premice: $y = -1123x + 2423818$ , kjer je x leto in y količina vode celotne Slovenije. Enačbo premice oz. podatka za začetno vrednosti in koeficient, sem dobila s pomočjo spremenljivke \verb|linearna|, ki je nastala med iskanjem linearne zveze. Torej padajoča premica nam pove, da vrednosti količine vode z leti na splošno pada.}
+\item{\emph{LINEARNI MODEL:} Če imamo linearni model, iščemo premico oblike $y = kx + n$. Iz našega grafa in s pomočjo \verb|linearna$coefficients|  lahko vidimo, da je enačba naše modre linearne premice: $y = -1123x + 2423818$ , kjer je x leto in y količina vode celotne Slovenije. Enačbo premice oz. podatka za začetno vrednosti in koeficient, sem dobila s pomočjo spremenljivke \verb|linearna|, ki je nastala med iskanjem linearne zveze. Torej padajoča premica nam pove, da vrednosti količine vode z leti na splošno pada.}
 
-\item{\emph{KVADRATNI MODEL:} Če imamo kvadratni model, iščemo premico oblike $y = a_0 + a_1x +a_2x^2$. Iz našega grafa lahko vidimo, da je enačba naše rdeče krivulje, ki se najbolje prilega našemu grafu: $y = 709026300 - 705087.9x + 175.3x^2$. Enačbo krivulje sem dobila s pomočjo spremenljivke \verb|kvadratna|. Iz slike lahko vidimo, da krivulja pada do njene minimalne vrednosti 2011, nato pa začne rasti.}
+\item{\emph{KVADRATNI MODEL:} Če imamo kvadratni model, iščemo premico oblike $y = a_0 + a_1x +a_2x^2$. Iz našega grafa in s pomočjo \verb|coefficients|  lahko vidimo, da je enačba naše rdeče krivulje, ki se najbolje prilega našemu grafu: $y = 709026300 - 705087.9x + 175.3x^2$. Enačbo krivulje sem dobila s pomočjo spremenljivke \verb|kvadratna|. Iz slike lahko vidimo, da krivulja pada do njene minimalne vrednosti 2011, nato pa začne rasti.}
 \end{itemize}
 
 Graf imamo, sedaj pa me zanima, kateri model, linearni ali kvadratni, je tisti, ki se bolje prilega mojim podatkom in je tako bolj točen. Iz grafa lako opazim, da se kvadratna veliko bolj prilega točkam, kot linearna, vendar lahko mojo hipotezo preverim še z izračunom odstopanja napovedanih vrednosti od dejanskih, s pomočjo \verb|vsota.kvadratov|, ki sem jo definirala v \verb|analizaslo.r|. Te vrednosti so preračunane vsote kvadratov razdalj od napovedanih do dejanskih vrednosti. Za linearni model dobimo vrednost 249937183, za kvadratni model pa 208907001. Tisti z manjšo vrednostjo, se mojim podatkom bolje prilage, torej je kvadratni model boljši od linearnega. Če pa pogledamo še loess model, pa se z vrednostjo 74889334, daleč najbolje prilagaja od obeh dveh.
@@ -203,10 +203,10 @@ Mislim, da na ta drastični padec leta 2005 vpliva to, da so v času \textbf{\em
 Za nasledenjo napredno analizo porečij, sem se odločila, da bi porečja razvrstila v skupine. Za določanje skupin v podatkih sem uporabila metodo razvrščanja v skupine. Izide sem slikovno predstavila z drevesom razvrščanja – dendrogramom.
 
 \makebox[\textwidth][c]{
-\includegraphics[width=1.5\textwidth]{../slike/slike-analiza/analizaslo1.pdf}
+\includegraphics[width=1.4\textwidth]{../slike/slike-analiza/analizaslo1.pdf}
 }
 
-Za hierarhično razvrščanje sem uporabila \verb|hclust| ter Wardovo metodo minimalne variance - \verb|ward.D2|, ki uporablja analizo variance za oceno razdalje med skupinami. Nato sem narisala graf in zatem podatke uvrstila v 6 skupin. Vidimo lahko, da je povodje Donave najpomembnejše, nato porečje Save. Nato sledijo naslednja skupina, ki vsebuje Ljubljansko Savo, porečje Drave in povodje Jadranskega morja, nato pa sledita še dve skupini manjši rek.
+Za hierarhično razvrščanje sem uporabila \verb|hclust| ter Wardovo metodo minimalne variance - \verb|ward.D2|, ki uporablja analizo variance za oceno razdalje med skupinami. Nato sem narisala graf in zatem podatke uvrstila v 6 skupin. Vidimo lahko, da ima povodje Donave največjo vrednsot, nato porečje Save. Nato sledi naslednja skupina, ki vsebuje Ljubljansko Savo, porečje Drave in povodje Jadranskega morja, nato pa sledita še dve skupini manjši rek.
 
 
 \newpage
@@ -229,9 +229,10 @@ Za konec analize porečij, pa sem se odločila, da pogledam še naša največja 
 
 \newpage
 \subsection{Napredna analiza Evrope}
-Ker sem imela v prejšnjih fazah malo težav pri evropski tabeli, saj je bilo precej držav brez podatkov, je bila analiza zato nenatančna in posledično je bilo zelo težko dejansko primerjati med seboj države, sem se odločila, da uvozim novo tabelo. Uvozila sem jo iz spletne strani \url{http://data.worldbank.org/indicator/ER.H2O.FWTL.K3/countries/1W?display=default}, ki prikazuje \textbf{podatke o količini zajema vode} (to je poraba + izguba vode skupaj), za cel svet. Tabelo sem najprej seveda omejila samo na države Evrope, podatke pa sem nato delila s povprečnim številom prebivalcev vsake države, med leti 1980 in 2020, da lahko dejansko primerjam države med seboj.\\
+Ker sem imela v prejšnjih fazah malo težav pri evropski tabeli, saj je bilo precej držav brez podatkov, je bila analiza zato nenatančna in posledično je bilo zelo težko dejansko primerjati med seboj države, sem se odločila, da uvozim novo tabelo. Uvozila sem jo iz spletne strani \url{http://data.worldbank.org/indicator/ER.H2O.FWTL.K3/countries/1W?display=default}, ki prikazuje \textbf{podatke o količini zajema vode} (to je poraba + izguba vode skupaj), za cel svet.()SPREEEEEEEEMEEEEEEEEEEENLJIVKEEEEEEEEEE\\ 
+Tabelo sem najprej seveda omejila samo na države Evrope, podatke pa sem nato delila s povprečnim številom prebivalcev vsake države, med leti 1980 in 2020, da lahko dejansko primerjam države med seboj oz. količino zajema vode na prebivalca.\\
 
-Najprej sem se odločila, da države razvrstim v skupine. Uporabila sem \verb|hclust| ter Wardovo metodo minimalne variance, ki uporablja analizo variance za oceno razdalje med skupinami. Izbrala sem si leta 2002, 2007 in 2013, saj so le ti vsebovali večina podatkov za vsako državo. Nato sem narisala graf in zatem podatke uvrstila v 7 skupin.
+Najprej sem se odločila, da države razvrstim v skupine s pomočjo \verb|hclust|. Izbrala sem si leta 2002, 2007 in 2013, saj so le ti vsebovali večina podatkov za vsako državo. Nato sem narisala dendrogram in zatem podatke uvrstila v 7 skupin.
 
 \makebox[\textwidth][c]{
 \includegraphics[width=1.4\textwidth]{../slike/slike-analiza/analizaeu1.pdf}
@@ -245,6 +246,41 @@ Odločila sem se, da grupiranje prikažem tudi na zemljevidu, da bo še toliko b
 }
 
 Sedaj ko sem razporedila evropske države po skupinah, me zanima ali za podobne države v isti skupini dobiš podobne modele, oziroma če se razlikujejo med skupinami. Iz vsake skupine bom nato izbrala eno državo, tisto najbolj tipično za svojo skupino in naredila graf z modelom zanjo.\\
+
+V mapi \verb|slike|, \verb|slike-analiza|, sem naredila pdf datoteko z imenom \verb|analizaeu5.pdf|. V njej je 7 grafov, vsak graf za svojo skupino, saj sem želela primerjati vse države z iste skupine na istem grafu, da vidim, kako se vrednosti obnašajo, npr. ali vse rastejo ali padajo ali nič od tega. Zaradi preglednosti in velike količine grafov sem se odločila, da v poročilu prikažem samo prvi graf, graf za prvo skupino, ki vsebuje podatke za 5 držav.
+
+\makebox[\textwidth][c]{
+\includegraphics[width=\textwidth]{../slike/slike-analiza/analizaeu5.pdf}
+}
+
+Vidimo, da vrednosti večinoma padajo z časom. Tudi države v drugi in peti skupini so take, da z časom vrednosti padajo. Nakar šesta skupina, ki vsebuje Estonijo in pa sedma skupina, z Slovenijo in Makedonijo, naraščajo. Tretja in četrta skupina pa sta taki, da vrednosti nekaterih držav padajo, nekateri pa naraščajo, torej mešano. Odločila sem se, da v poročilu prikažem samo linearni model za Nemčijo in Slovenijo, saj prvi model pada, drugi pa narašča.
+
+\makebox[\textwidth][c]{
+\includegraphics[width=0.5\textwidth]{../slike/slike-analiza/analizaeu-ger.pdf}
+\hspace{5mm}
+\includegraphics[width=0.5\textwidth]{../slike/slike-analiza/analizaeu-slo.pdf}
+}
+
+Torej imamo skupine, ki samo padajo, samo naraščajo ali pa kar oboje. Da pa bi bolje razumelji, kaj se na splošno dogaja z količino vode, sem se odločila, da se za konec analize Evrope osredotočim na to, kako se bo obnašala ta količina vode, za celotno Evropo čez čas, oz. še bolj me zanima, kaj se bo dogajalo z vodo v prihodnosti, npr. do leta 2040.
+
+\newpage
+\makebox[\textwidth][c]{
+\includegraphics[width=\textwidth]{../slike/slike-analiza/analizaeu4.pdf}
+}
+
+Graf pa sem tudi regresijsko analizirala z dvema modeloma: \emph{linearni} in \emph{kvadratni} model.\\
+Torej kaj lahko vidimo iz modelov?
+\begin{itemize}
+\item{\emph{LINEARNI MODEL:} Če imamo linearni model, iščemo premico oblike $y = kx + n$. Iz našega grafa in s pomočjo \verb|lin$coefficients|, lahko vidimo, da je enačba naše vijolične linearne premice: $y = -1.158x + 2458.791$ , kjer je x leto in y količina zajete vode celotne Evrope. Enačbo premice oz. podatka za začetno vrednosti in koeficient, sem dobila s pomočjo spremenljivke \verb|lin|, ki je nastala med iskanjem linearne zveze. Torej padajoča premica nam pove, da vrednosti količine vode z leti na splošno pada.}
+
+\item{\emph{KVADRATNI MODEL:} Če imamo kvadratni model, iščemo premico oblike $y = a_0 + a_1x +a_2x^2$. Iz našega grafa in s pomočjo \verb|coefficients| lahko vidimo, da je enačba naše rdeče krivulje, ki se najbolje prilega našemu grafu: $y = 402552 - 401.3x + 0.1x^2$. Enačbo krivulje sem dobila s pomočjo spremenljivke \verb|kv|. Iz slike lahko vidimo, da krivulja pada do njene minimalne vrednosti, ki je 2006.5, torej med letoma 2006 in 2007, nato pa začne rasti.}
+\end{itemize}
+
+Sedaj pa me zanima, kateri model, linearni ali kvadratni, je tisti, ki se bolje prilega mojim podatkom. Iz grafa lako opazim, da se kvadratna bolj prilega točkam, vendar lahko mojo hipotezo preverim še z izračunom odstopanja napovedanih vrednosti od dejanskih, s pomočjo \verb|vsota.kvadratov2|, ki sem jo definirala v \verb|analizaeu.r|. Te vrednosti so preračunane vsote kvadratov razdalj od napovedanih do dejanskih vrednosti. Za linearni model dobimo vrednost 800.3, za kvadratni model pa 521. Tisti z manjšo vrednostjo, se mojim podatkom bolje prilage, torej je za moj graf kvadratni model bolj točen od linearnega.\\
+
+Torej če sedaj pogledamo ta graf, lahko spet opazimo, da so vrednosti količine vode najprej zelo  padle. Kakor pri Sloveniji, predvidevam, da je na ta padec ogromno vplivalo \underline{obnovitev vodovodnega omrežja}, pred krizo. Države so bile v razcvetu, po celi Evropi se je ogromno gradilo, obnavljalo in tako tudi cevi.  Posledično so bile manjše izgube na vododvodnem omrežju, torej so bile manjše izgube vode, posledično se je zmanjšala količina zajema vode, torej ker je to količina porabe skupaj z izgubo, mislm da je drastično padla predvsem količina izgubljene vode.  Po krizi se je tudi zmanjšala industrija, ljudje so postali bolj ozaveščeni in veliko več je varčnih stvari.\\
+
+Torej vidimo lahko, da se Evropa in Slovenija obnašata zelo podobno, na obe je močno vplivala kriza in pa pred njo, velika obnovitev vodovodnega omrežja. Kaj točno pa se bo dogajalo v prihodosti pa je zaenkrat zelo težko napovedati za obe. Glede na to, da imamo cevi obnovljene ter da smo ljudje vedno bolj ekološki in ozaveščani, bo količina vode še naprej počasi padala kar nekaj let, vendar pa bo spet prišel čas, ko bo cevi treba oboviti, ko bodo začele prepuščati vodo, takrat pa bo odvisno spet v kakšnem fiančnem stanju bo Evropa in Slovenija, ali bo spet kakšna kriza ali pa bo stanje ustaljeno in bomo cevi hitro zamenjali. Glede tega se prepustimo presenetiti, vendar pa mislim, da je za vodo nasplošno lepa prihodnost, saj smo je v veliki meri začeli ceniti in mislim, da bomo lepo poskrbeli zanjo in naše okolje.
 
 
 

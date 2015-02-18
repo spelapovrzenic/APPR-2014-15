@@ -19,6 +19,8 @@ plot(hh, hang=0.1, cex=0.7, main = "Zajem vode v Evropi, na prebivalca",xlab ="A
      sub = "za leta 2002, 2007, 2013")
 rect.hclust(hh,k=7,border="green")
 
+
+
 dev.off()
 
 #############################
@@ -104,7 +106,7 @@ cairo_pdf("slike/slike-analiza/analizaeu4.pdf", width = 9.27, height = 5.69,
 napoved <- function(x, model){predict(model,data.frame(leta=x))}
 
 plot(leta,vsotaeu2,xlim= c(1987,2040),ylim=c(80,180),xlab="Leta",ylab="Količina vode", 
-     main="Napoved zajete vode za Evropo do leta 2040")
+     main="Napoved zajete vode (poraba + izguba) za Evropo do leta 2040")
 curve(napoved(x, lin),col="darkviolet",add=TRUE)
 curve(napoved(x, kv),col="red",add=TRUE)
 legend("bottomleft",legend=c("Linerana napoved", 
@@ -114,64 +116,145 @@ legend("bottomleft",legend=c("Linerana napoved",
 
 
 #manjši ostanek je bolj natančen
-vsota.kv <- sapply(list(linearna, kvadratna), function(x) sum(x$residuals^2))
+vsota.kvadratov2 <- sapply(list(lin, kv), function(x) sum(x$residuals^2))
 #8.003063e+02 2.089070e+08 (linearna bolj natančna)
 dev.off()
 #####################################
+cat("Rišem analizo Evrope - primerjanje držav v skupini ...\n")
+cairo_pdf("slike/slike-analiza/analizaeu5.pdf", width = 9.27, height = 5.69,
+          family = "Arial", onefile = TRUE)
+#da primerjam vse države z ste skupine na istem grafu
+#SKUPINA1
+skupine <- cutree(hh, 7)
+sk <- 1 # izbrana skupina
+drzave <- names(which(skupine == sk))
+n <- length(drzave)
+barve <- rainbow(n)
+leta <- c(2002, 2007, 2013)
+plot(range(leta), range(izbor[drzave,], na.rm = TRUE), "n",main="skupina1",xlab="Leta",ylab="Količina vode")
+for (i in 1:n) {
+  points(leta, izbor[drzave[i],], col = barve[i])
+  lines(leta, izbor[drzave[i],], col = barve[i])
+}
+
+#SKUPINA2
+skupine <- cutree(hh, 7)
+sk <- 2 # izbrana skupina
+drzave <- names(which(skupine == sk))
+n <- length(drzave)
+barve <- rainbow(n)
+leta <- c(2002, 2007, 2013)
+plot(range(leta), range(izbor[drzave,], na.rm = TRUE), "n",main="skupina2",xlab="Leta",ylab="Količina vode")
+for (i in 1:n) {
+  points(leta, izbor[drzave[i],], col = barve[i])
+  lines(leta, izbor[drzave[i],], col = barve[i])
+}
+
+#SKUPINA3
+skupine <- cutree(hh, 7)
+sk <- 3 # izbrana skupina
+drzave <- names(which(skupine == sk))
+n <- length(drzave)
+barve <- rainbow(n)
+leta <- c(2002, 2007, 2013)
+plot(range(leta), range(izbor[drzave,], na.rm = TRUE), "n",main="skupina3",xlab="Leta",ylab="Količina vode")
+for (i in 1:n) {
+  points(leta, izbor[drzave[i],], col = barve[i])
+  lines(leta, izbor[drzave[i],], col = barve[i])
+}
+
+#SKUPINA4
+skupine <- cutree(hh, 7)
+sk <- 4 # izbrana skupina
+drzave <- names(which(skupine == sk))
+n <- length(drzave)
+barve <- rainbow(n)
+leta <- c(2002, 2007, 2013)
+plot(range(leta), range(izbor[drzave,], na.rm = TRUE), "n",main="skupina4",xlab="Leta",ylab="Količina vode")
+for (i in 1:n) {
+  points(leta, izbor[drzave[i],], col = barve[i])
+  lines(leta, izbor[drzave[i],], col = barve[i])
+}
+
+#SKUPINA5
+skupine <- cutree(hh, 7)
+sk <- 5 # izbrana skupina
+drzave <- names(which(skupine == sk))
+n <- length(drzave)
+barve <- rainbow(n)
+leta <- c(2002, 2007, 2013)
+plot(range(leta), range(izbor[drzave,], na.rm = TRUE), "n",main="skupina5",xlab="Leta",ylab="Količina vode")
+for (i in 1:n) {
+  points(leta, izbor[drzave[i],], col = barve[i])
+  lines(leta, izbor[drzave[i],], col = barve[i])
+}
+
+#SKUPINA6
+skupine <- cutree(hh, 7)
+sk <- 6 # izbrana skupina
+drzave <- names(which(skupine == sk))
+n <- length(drzave)
+barve <- rainbow(n)
+leta <- c(2002, 2007, 2013)
+plot(range(leta), range(izbor[drzave,], na.rm = TRUE), "n",main="skupina6",xlab="Leta",ylab="Količina vode")
+for (i in 1:n) {
+  points(leta, izbor[drzave[i],], col = barve[i])
+  lines(leta, izbor[drzave[i],], col = barve[i])
+}
+
+#SKUPINA7
+skupine <- cutree(hh, 7)
+sk <- 7 # izbrana skupina
+drzave <- names(which(skupine == sk))
+n <- length(drzave)
+barve <- rainbow(n)
+leta <- c(2002, 2007, 2013)
+plot(range(leta), range(izbor[drzave,], na.rm = TRUE), "n",main="skupina7",xlab="Leta",ylab="Količina vode")
+for (i in 1:n) {
+  points(leta, izbor[drzave[i],], col = barve[i])
+  lines(leta, izbor[drzave[i],], col = barve[i])
+}
+dev.off()
+
+#############################################
+cat("Rišem analizo Evrope - razlike med leti...\n")
+cairo_pdf("slike/slike-analiza/analizaeu6.pdf", width = 9.27, height = 5.69,
+          family = "Arial", onefile = TRUE)
+
+analiza.izbor1 <- impute.knn(as.matrix(izbor[apply(is.na(izbor), 1, sum) <= 1,]))$data
+analiza.izbor1 <- data.frame(analiza.izbor1,
+                            razlika.2002.2007 = analiza.izbor1[,"X2007"] - analiza.izbor1[,"X2013"],
+                            razlika.2007.2013 = analiza.izbor1[,"X2013"] - analiza.izbor1[,"X2007"])
+
+hh1 <- hclust(dist(scale(analiza.izbor1))) # podatki niso več neposredno primerljivi, zato jih je potrebno skalirati
+plot(hh1, hang=0.1, cex=0.7, main = "Razlike zajema vode v Evropi, na prebivalca",xlab ="Analiza",ylab=NULL,
+     sub = "razlike med 2002 in 2007 ter 2007 in 2013")
+rect.hclust(hh1,k=6,border="darkorange")
+dev.off()
+#########################################
 # VSAKA SKUPINA POSEBEJ
 euroana <- apply(analiza.izbor , 1, c)
 leta2 <- c( 2002, 2007, 2013)
 
-#estonia 1
-cat("Rišem analizo Evrope - estonija...\n")
-cairo_pdf("slike/slike-analiza/analizaeu-est.pdf", width = 9.27, height = 5.69,
-          family = "Arial", onefile = TRUE)
-plot(leta2,euroana[,13], xlab="Leta",ylab="Količina zajete vode", main="1.skupina: predstavnica Estonija") #NARAŠČA
-lin0 <- lm(euroana[,13]~leta2)
-abline(lin0, col="blue")
-dev.off()
-
-#2.skupina MEŠANO
-
-#3.skupina - VSE PADAJO, NEKATERE MALO BOL POLOŽNO
-#United Kingdom
-cat("Rišem analizo Evrope - uk...\n")
-cairo_pdf("slike/slike-analiza/analizaeu-uk.pdf", width = 9.27, height = 5.69,
-          family = "Arial", onefile = TRUE)
-plot(leta2,euroana[,16], xlab="Leta",ylab="Količina zajete vode", main="3.skupina: predstavnica Združeno Kraljestvo")
-lin8 <- lm(euroana[,16]~leta2)
-abline(lin8, col="lightblue")
-dev.off()
-
-#4.skupina NARAŠČA
 #Slovenija
 cat("Rišem analizo Evrope - slovenija...\n")
-cairo_pdf("slike/slike-analiza/analizaeu-slo.pdf", width = 9.27, height = 5.69,
+cairo_pdf("slike/slike-analiza/analizaeu-slo.pdf", width = 5.27, height = 5.69,
           family = "Arial", onefile = TRUE)
-plot(leta2,euroana[,34],xlab="Leta",ylab="Količina zajete vode", main="4. skupina: predstavnica Slovenija") #NARAŠČA
+plot(leta2,euroana[,34],xlab="Leta",ylab="Količina zajete vode", main="7. skupina: predstavnica Slovenija") #NARAŠČA
 lin18 <- lm(euroana[,34]~leta2)
 abline(lin18, col="darkviolet")
 dev.off()
 
-#5 (vEČINA) PADA
+
 #Germany
 cat("Rišem analizo Evrope - nemčija...\n")
-cairo_pdf("slike/slike-analiza/analizaeu-ger.pdf", width = 9.27, height = 5.69,
+cairo_pdf("slike/slike-analiza/analizaeu-ger.pdf", width = 5.27, height = 5.69,
           family = "Arial", onefile = TRUE)
-plot(leta2,euroana[,10],, xlab="Leta",ylab="Količina zajete vode", main="5. skupina: predstavnica Nemčija")# PADA
+plot(leta2,euroana[,10],, xlab="Leta",ylab="Količina zajete vode", main="2. skupina: predstavnica Nemčija")# PADA
 lin25 <- lm(euroana[,10]~leta2)
-abline(lin25, col="violet")
+abline(lin25, col="cyan")
 dev.off()
 
-#6.skipina PADA 
-#France
-cat("Rišem analizo Evrope - francija...\n")
-cairo_pdf("slike/slike-analiza/analizaeu-fr.pdf", width = 9.27, height = 5.69,
-          family = "Arial", onefile = TRUE)
-plot(leta2,euroana[,15], xlab="Leta",ylab="Količina zajete vode", main="6. skupina: predstavnica Francija")
-lin30 <- lm(euroana[,15]~leta2)
-abline(lin30, col="darkgreen")
-dev.off()
 
 
 #7.sk MEŠANO
