@@ -41,9 +41,13 @@ Peta tabela pa je iz neke spletne strani, uvozila pa sem jo kot html. Izbrala pa
 
 \item{\url{http://www.nrdc.org/water/drinking/arsenic/chap1.asp}}
 \end{enumerate}
-Moj cilj projekta je, da analiziram iz kje največ dobimo vodo, kako se obnaša poraba in preskrba vode čez čas ter katere statistične regije porabijo največ vode v gospodinjstvih na prebivalca.
-
+Moj cilji projekta so:
+\begin{itemize}
+\item{Slovenija: da analiziram iz kje največ dobimo vodo, kako se obnaša poraba in preskrba vode čez čas ter katere statistične regije porabijo največ vode v gospodinjstvih na prebivalca.} 
+\item{Evropa: Katere države največ porabijo vode ter kakšna bo poraba vode v prihodnosti.}
+\end{itemize}
 \newpage
+
 \section{Obdelava, uvoz in čiščenje podatkov}
 
 Uporabila sem 5 tabel.
@@ -54,17 +58,22 @@ Najprej sem tabele, ki sem jih uvozila v \verb|csv| obliki, uredila, se pravi od
 
 Pri peti tabeli o arzeniku, ki sem jo dobila na spletni strani, pa sem jo najprej uvozila v mapi \verb|lib|, v \verb|xml.r|. Najprej sem poiskala koliko tabel je v tej spletni strani, nato izbrala tisto, ki sem jo želela uvoziti, potem pa iz nje naredila matriko, nato pa še tabelo. Tudi to tabelo sem nato uvozila v mapi \verb|uvozi|, v \verb|uvozi.r|.
 
+\begin{enumerate}
+\item{tabela: Prikazuje količino vode v porečjih Slovenije, od leta 2002 do 2013. Leta [številske spremenljivke] so podana v stolpcih, v vrsticah pa imamo porečja v Sloveniji [imenske spremenljivke].}
+\item{tabela: Prikazuje kolikšna je preskrba vode na različnih področjih dejavnosti, med leti 2008 do 2013. Leta [številske spremenljivke] so podana v stolpcu, v vrsticah pa imamo imena različni dejavnosti [imenske spremenljivke].}
+\item{tabela: Prikazuje porabo vode, dobljene iz javnega vodovoda, v gospodinjstvih na prebivalca, med leti 2002 do 2012. Leta [številske spremenljivke] so podana v stolpcih, v vrsticah pa so podane regije v Sloveniji [imenske spremenljivke].}
+\item{tabela: Prikazuje podatke o preskrbi z vodo po področjih dejavnosti v evropskih državah, med leti 2000 do 2011. Leta [številske spremenljivke] so podana v stolpcih, v vrsticah pa so podane evropske države [imenske spremenljivke].}
+\item{tabela: Podatki so o  tem kolikšna raven arzenika je vsebovana v vodovodnih sistemih v 25 državah. V stolpcih so nizke in visoke ocene prizadetih območij, ter nizke in visoke ocene celotnega prebivalsta [imenske spremenljivke], v vrstica pa so podane povprečne stopnje arzenika v ppb [urejenostna spremenljivka].}
+\end{enumerate}
+
 Ko sem uvozila vse tabele, sem se lotila risanja grafov. Najprej sem v mapi \verb|slike|, ustvarila novo R-skripto z imenom \verb|grafi.r|, nato napisala v prvi in zadnji vrstici ukaze, ki mi uvozijo grafe v pdf obliko, potem pa sem začela z grafi.\\
-
-SPREMENLJIVKE!!!!!!!!!!!!
-
 \newpage
 
 \textbf{1.GRAF: \emph{Porečja, leto 2013}}: Za prvo tabelo, ki govori o porečjih, sem se odločila da bom uporabila stolpični graf (barplot), saj sem želela, da bi iz grafa videli, koliko je porečij v Sloveniji in katera so največja. Izbrala sem si samo podatke za porečja za leto 2013, saj neke bistvene razlike med leti drugače ni.\\
-\textbf{Interpretacija}: Iz grafa lahko vidimo, da Povodje Donave priskrbi daleč največjo količino dobavljene vode, takoj zatem pa v povodju Donave največ priskrbi porečje Save
+\textbf{Interpretacija}: Iz grafa lahko vidimo, da Povodje Donave priskrbi daleč največjo količino dobavljene vode, takoj zatem pa porečje Save
 
 \makebox[\textwidth][c]{
-\includegraphics[width=1.25\textwidth]{../slike/slike-grafi/porecja.pdf}
+\includegraphics[width=1.3\textwidth]{../slike/slike-grafi/porecja.pdf}
 }
 
 \newpage
@@ -92,8 +101,8 @@ SPREMENLJIVKE!!!!!!!!!!!!
 }
 
 \newpage
-\textbf{5.GRAF: \emph{Količina arzenika v vodovodnih sistemih (število delcev na milijon)}}: Prav tako za peti graf, ki govori o kolicina arzenika v vodovodnih sistemih, sem izbrala stolpični graf, saj vsebuje urejenostne spremenljivke in je zato najbolj primeren za prikaz podatkov.\\
-\textbf{Interpretacija}: Meja, da je preveč količine arzenika v vodi, in da je potem lahko že zdravlju škodljivo in nevarno, je 10ppb (število delcev na milijardo). Tako iz grafa lahko vidimo, da je veliko količin v normalnem, neškodljivem stanj, se pa na najde nekaj malih primerov, v katerih so našli prekomerno količino arzenika v vodi, največ tistih, ki so že nevarni, je tistih ki odstopajo za okoli 5ppa od mejne vrednosti.\\
+\textbf{5.GRAF: \emph{Količina arzenika v vodovodnih sistemih (število delcev na milijon)}}: Prav tako za peti graf, ki govori o količina arzenika v vodovodnih sistemih, sem izbrala stolpični graf, saj vsebuje urejenostne spremenljivke in je zato najbolj primeren za prikaz podatkov.\\
+\textbf{Interpretacija}: Meja, ko je preveč količine arzenika v vodi, in da je potem lahko že zdravlju škodljivo in nevarno, je 10ppb (število delcev na milijardo). Tako iz grafa lahko vidimo, da je veliko količin v normalnem, neškodljivem stanj, se pa najde nekaj malih primerov, v katerih so našli prekomerno količino arzenika v vodi. Največ tistih, ki so že nevarni, so tisti, ki odstopajo za okoli 5ppa od mejne vrednosti.\\
 
 \makebox[\textwidth][c]{
 \includegraphics[width=1.3\textwidth]{../slike/slike-grafi/stopnje.pdf}
@@ -137,13 +146,13 @@ Analizirala sem tudi Evropo, namreč \textbf{preskrbo z vodo v Evropi za leto 20
 
 \newpage
 
-Da pa bi bila analiza evropske preskrbe z vodo bolj natančna in dejansko primerljiva med evropskimi državami, pa sem v naslednjem grafu prikazala \textbf{povprečno preskrbo z vodo v Evropi na prebivalca za leto 2005}. Tako sem še dodatno iz spletne strani \url{http://www.geohive.com/earth/his_proj_europe.aspx} uvozila tabelo v \verb|csv| obliki. Prikazuje število prebivalcev za vsako evropsko državo. Nato pa sem podatke iz tabele euro normirala z številom prebivalcev v posamezni državi in tako dobila veliko bolj primerljive podatke.\\
+Da pa bi bila analiza evropske preskrbe z vodo bolj natančna in dejansko primerljiva med evropskimi državami, pa sem v naslednjem grafu prikazala \textbf{povprečno preskrbo z vodo v Evropi na prebivalca za leto 2005}. Tako sem še dodatno iz spletne strani \url{http://www.geohive.com/earth/his_proj_europe.aspx} uvozila tabelo v \verb|csv| obliki. Prikazuje število prebivalcev za vsako evropsko državo. V vrsticah so leta 1950, 1960, 1970 ... 2050 [številske spremenljivke], v stolpcih pa so podane imena vseh evropskih držav [imenske spremenljivke]. Nato pa sem podatke iz tabele \verb|euro| normirala z številom prebivalcev v posamezni državi in tako dobila veliko bolj primerljive podatke.\\
 
 Iz zemljevida lahko vidimo, da ima Norveška daleč največjo preskrbo na prebivalca, nato Španija, Irska, Švedska, Združeno Kraljestvo, Portugalska ter Bolgarija in Makedonija. Najmanjšo preskrbo na prebivalca pa ima Litva.
 Če pa še omenimo Slovenijo, vidimo da ima v primerjavi z ostalimi, zelo majhno preskrbo z vodo.
 
 \makebox[\textwidth][c]{
-\includegraphics[width=1.4\textwidth]{../slike/slike-zemljevidi/europa2.pdf}
+\includegraphics[width=1.3\textwidth]{../slike/slike-zemljevidi/europa2.pdf}
 }
 
 \newpage
@@ -153,14 +162,16 @@ Iz zemljevida lahko vidimo, da ima Norveška daleč največjo preskrbo na prebiv
 
 Če na kratko povzamem ugotovitve iz prejšnjih faz za Slovenijo:
 \begin{enumerate} 
-\item{Povodje Donave priskrbi daleč največjo količino dobavljene vode, takoj zatem pa v povodju Donave največ priskrbi porečje Save}
+\item{Povodje Donave priskrbi daleč največjo količino dobavljene vode, takoj zatem pa porečje Save}
 \item{Preskrba z vodo med leti 2008-2013, je bila največja v letu 2009, nato pa je v dveh letih močno padla in v 2011 dosegla najnižjo raven, po letu 2011 pa je spet začela preskrba naraščati.}
 \item{Med leti 2002-2012 ima največjo povprečno porabo vode Primorska, Gorenjska in Osrednja Slovenija, najmanjšo porabo pa imajo na Koroškem in v Pomurju.}
 \item{V letu 2012 ima Gorenjska, Obalno-kraška, Goriška in Savinjska regija največjo porabo na prebivalca, najmanjšo pa Koroška.}
 \item{V Jugovzhodni Sloveniji poraba vode na prebivalca z leti narašča, v Osrednjeslovenski, Podravski, Spodnjeposavski, Zasavski in Koroški regiji pa poraba z leti pada. Za ostale regije nemoremo predvidevati dogajanja, saj poraba iz leta v leto niha.}
 \end{enumerate}
 
-V prejšnjih fazah sem torej ugotovila že mnogo stvari, ki so me na samem začetku zanimale, tako kakšne so razlike porabe vode po regijah ter iz katerih porečij dobimo največ vode. Če pa se ustavim pri \emph{2. ugotovitvi} (torej da je bila preskrba z vodo, 2008-2013, največja v letu 2009, nato je v dveh letih močno padla in v 2011 dosegla minimalno vrednost, nato pa po letu 2011 spet začela naraščati), pa lahko opazim, da ta ugotovitev potrebuje še dodatno analizo, namreč zanima me, kaj je glavni ralog, da je bil v letu 2011 tak velik padec preskrbe vode. Ker je po mojem mnenju količina vode v veliki odvisnosti povezana z padavinami, sem se odočila, da to mojo hipotezo tudi preverim. Uvozila sem novo tabelo iz spletne strani statističnega urada: \url{http://pxweb.stat.si/pxweb/Dialog/varval.asp?ma=0156104S&ti=&path=../Database/Okolje/01_ozemlje_podnebje/10_01561_podnebni_kazalniki/&lang=2}, ki prikazuje \textbf{povprečne letne in mesečne količine padavin letno v Sloveniji}. Tabelavsebuje SPREMENLJJIVKE!!!!!!!!!!!!!!!!!!!:::::::::::::::::::::::::::::: Tako sem iz te table, naredila sledeči graf:
+V prejšnjih fazah sem torej ugotovila že mnogo stvari, ki so me na samem začetku zanimale, tako kakšne so razlike porabe vode po regijah ter iz katerih porečij dobimo največ vode. Če pa se ustavim pri \emph{2. ugotovitvi} (torej da je bila preskrba z vodo, 2008-2013, največja v letu 2009, nato je v dveh letih močno padla in v 2011 dosegla minimalno vrednost, nato pa po letu 2011 spet začela naraščati), pa lahko opazim, da ta ugotovitev potrebuje še dodatno analizo, namreč zanima me, kaj je glavni ralog, da je bil v letu 2011 tak velik padec preskrbe vode. Ker je po mojem mnenju količina vode v veliki odvisnosti povezana z padavinami, sem se odočila, da to mojo hipotezo tudi preverim. Uvozila sem novo tabelo iz spletne strani statističnega urada: \url{http://pxweb.stat.si/pxweb/Dialog/varval.asp?ma=0156104S&ti=&path=../Database/Okolje/01_ozemlje_podnebje/10_01561_podnebni_kazalniki/&lang=2}, ki prikazuje \textbf{povprečne letne in mesečne količine padavin letno v Sloveniji, 2008-2013}. Leta [številska spremenljivka] so podana v stolpcih, po vrsticah pa imamo mesečno ter letno povprečno količino padavin [imenska spremnljivka]. \\
+
+Tako sem iz te table, naredila sledeči graf:
 \newpage
 
 \textbf{6.GRAF:\emph{Povprečna letna količina padavin v Sloveniji od leta 2008 do 2013}}
@@ -195,7 +206,7 @@ Torej kaj nam te modeli povejo?
 Graf imamo, sedaj pa me zanima, kateri model, linearni ali kvadratni, je tisti, ki se bolje prilega mojim podatkom in je tako bolj točen. Iz grafa lako opazim, da se kvadratna veliko bolj prilega točkam, kot linearna, vendar lahko mojo hipotezo preverim še z izračunom odstopanja napovedanih vrednosti od dejanskih, s pomočjo \verb|vsota.kvadratov|, ki sem jo definirala v \verb|analizaslo.r|. Te vrednosti so preračunane vsote kvadratov razdalj od napovedanih do dejanskih vrednosti. Za linearni model dobimo vrednost 249937183, za kvadratni model pa 208907001. Tisti z manjšo vrednostjo, se mojim podatkom bolje prilage, torej je kvadratni model boljši od linearnega. Če pa pogledamo še loess model, pa se z vrednostjo 74889334, daleč najbolje prilagaja od obeh dveh.
 
 Torej če se sedaj osredotočim na lokalni model loess, ki se najbolje prilagaja, lahko vidim, da so vrednosti od 2002 do 2005 drastično padle, nato so se do leta 2007 malo dvignile, in nato do leta 2012 naprej padale.\\
-Mislim, da na ta drastični padec leta 2005 vpliva to, da so v času \textbf{\emph{pred krizo}}, do leta 2007, 2008, na veliko \underline{obnavljali vodovode cevi}, torej so bile manjše izgube na vododvodnem omrežju, tako so bile manjše izgube vode, posledično se je zmanjšala količina vode dobljene iz porečij. Žal to ugotovitev ne morem podkrepiti s še kakšno tabelo, saj ne obstaja nobena statistika, ki bi prikazovala te podatke za celotno Slovenijo, saj je teh podjetij, ki obnavljajo vodovodne sisteme zelo veliko in niso dolžni tega poročati, vsak ima svoje podatke o tem. Če pa že poročajo, pa ponavadi pokažejo evidenco o tem, koliko je bilo stroškov zaradi obnovitve in ne koliko so obnovili po kilometrih.
+Mislim, da na ta drastični padec leta 2005 vpliva to, da so v času \textbf{\emph{pred krizo}}, do leta 2007, 2008, na veliko \underline{obnavljali vodovode cevi}, torej so bile manjše izgube na vodovodnem omrežju, tako so bile manjše izgube vode, posledično se je zmanjšala količina vode dobljene iz porečij. Žal to ugotovitev ne morem podkrepiti s še kakšno tabelo, saj ne obstaja nobena statistika, ki bi prikazovala te podatke za celotno Slovenijo, saj je teh podjetij, ki obnavljajo vodovodne sisteme zelo veliko in niso dolžni tega poročati, vsak ima svoje podatke o tem. Če pa že poročajo, pa ponavadi pokažejo evidenco o tem, koliko je bilo stroškov zaradi obnovitve in ne koliko so obnovili po kilometrih.
 
 \textbf{\emph{Po krizi}}, torej po letu 2008 pa vrednosti spet padajo, eden izmed razlogov za to bi bil, da se je v tem času \underline{zmanjšala industrija}, veliko tovarn, obrti, podjetij je propadlo, zaprlo svojo obrt in  posledično se je porabilo manj vode in tako je količina dobljene vode iz porečij padala. Zaradi krize so ljudje postali na splošno veliko bolj \underline{varčni} glede vode, zato se je poraba tudi zmanjšala. Kot primer, že v osnovnih šolah otroke učijo o tem. Tudi \underline{ozaveščenost o okolju} se je povečala in vedno bolj uporabljamo take stroje (npr. pralne, pomivalne), ki so bolj varčni in porabijo manj vode in posledično prihranimo nekaj denarja. Ljudje tudi razmišlajo na bolj \underline{varčen način}, npr. nekateri že uporabljeno vodo v hiši, npr. odpadna voda iz pralnega stroja, potem uporabijo za uporabo v straniščnih školjkah. Torej se ljudje veliko bolj zavedamo, kako pomembna je za nas pitna voda in jo ne porabljamo po nepotrebnem, zato količine vode tudi padajo.\\
 
@@ -206,7 +217,7 @@ Za nasledenjo napredno analizo porečij, sem se odločila, da bi porečja razvrs
 \includegraphics[width=1.4\textwidth]{../slike/slike-analiza/analizaslo1.pdf}
 }
 
-Za hierarhično razvrščanje sem uporabila \verb|hclust| ter Wardovo metodo minimalne variance - \verb|ward.D2|, ki uporablja analizo variance za oceno razdalje med skupinami. Nato sem narisala graf in zatem podatke uvrstila v 6 skupin. Vidimo lahko, da ima povodje Donave največjo vrednsot, nato porečje Save. Nato sledi naslednja skupina, ki vsebuje Ljubljansko Savo, porečje Drave in povodje Jadranskega morja, nato pa sledita še dve skupini manjši rek.
+Za hierarhično razvrščanje sem uporabila \verb|hclust| ter Wardovo metodo minimalne variance - \verb|ward.D2|, ki uporablja analizo variance za oceno razdalje med skupinami. Nato sem narisala graf in zatem podatke uvrstila v 6 skupin. Vidimo lahko, da ima povodje Donave največjo vrednost, nato porečje Save. Nato sledi naslednja skupina, ki vsebuje Ljubljansko Savo, porečje Drave in povodje Jadranskega morja, nato pa sledita še dve skupini manjši rek.
 
 
 \newpage
@@ -229,7 +240,7 @@ Za konec analize porečij, pa sem se odločila, da pogledam še naša največja 
 
 \newpage
 \subsection{Napredna analiza Evrope}
-Ker sem imela v prejšnjih fazah malo težav pri evropski tabeli, saj je bilo precej držav brez podatkov, je bila analiza zato nenatančna in posledično je bilo zelo težko dejansko primerjati med seboj države, sem se odločila, da uvozim novo tabelo. Uvozila sem jo iz spletne strani \url{http://data.worldbank.org/indicator/ER.H2O.FWTL.K3/countries/1W?display=default}, ki prikazuje \textbf{podatke o količini zajema vode} (to je poraba + izguba vode skupaj), za cel svet.()SPREEEEEEEEMEEEEEEEEEEENLJIVKEEEEEEEEEE\\ 
+Ker sem imela v prejšnjih fazah malo težav pri evropski tabeli, saj je bilo precej držav brez podatkov, je bila analiza zato nenatančna in posledično je bilo zelo težko dejansko primerjati med seboj države, sem se odločila, da uvozim novo tabelo. Uvozila sem jo iz spletne strani \url{http://data.worldbank.org/indicator/ER.H2O.FWTL.K3/countries/1W?display=default}, ki prikazuje \textbf{podatke o količini zajema vode} (to je poraba + izguba vode skupaj), za cel svet. V stolpcih so podana leta 1972, 1977, 1982, 1987, 1992, 1997, 2002, 2007, 2012 in 2013 [številske spremenljivke], v vrsticah pa imamo imena vseh držav sveta [imenske spremnljivke].\\ 
 Tabelo sem najprej seveda omejila samo na države Evrope, podatke pa sem nato delila s povprečnim številom prebivalcev vsake države, med leti 1980 in 2020, da lahko dejansko primerjam države med seboj oz. količino zajema vode na prebivalca.\\
 
 Najprej sem se odločila, da države razvrstim v skupine s pomočjo \verb|hclust|. Izbrala sem si leta 2002, 2007 in 2013, saj so le ti vsebovali večina podatkov za vsako državo. Nato sem narisala dendrogram in zatem podatke uvrstila v 7 skupin.
@@ -245,15 +256,15 @@ Odločila sem se, da grupiranje prikažem tudi na zemljevidu, da bo še toliko b
 \includegraphics[width=1.4\textwidth]{../slike/slike-analiza/analizaeu2.pdf}
 }
 
-Sedaj ko sem razporedila evropske države po skupinah, me zanima ali za podobne države v isti skupini dobiš podobne modele, oziroma če se razlikujejo med skupinami. Iz vsake skupine bom nato izbrala eno državo, tisto najbolj tipično za svojo skupino in naredila graf z modelom zanjo.\\
+Sedaj ko sem razporedila evropske države po skupinah, me zanima ali za podobne države v isti skupini dobiš podobne modele, oziroma če se razlikujejo med skupinami. Nato bom izbrala tiste najbolj značilne za svojo skupino in naredila graf z modelom zanje.\\
 
-V mapi \verb|slike|, \verb|slike-analiza|, sem naredila pdf datoteko z imenom \verb|analizaeu5.pdf|. V njej je 7 grafov, vsak graf za svojo skupino, saj sem želela primerjati vse države z iste skupine na istem grafu, da vidim, kako se vrednosti obnašajo, npr. ali vse rastejo ali padajo ali nič od tega. Zaradi preglednosti in velike količine grafov sem se odločila, da v poročilu prikažem samo prvi graf, graf za prvo skupino, ki vsebuje podatke za 5 držav.
+V mapi \verb|slike|, v datoteki \verb|slike-analiza|, sem naredila pdf datoteko z imenom \verb|analizaeu5.pdf|. V njej je 7 grafov, vsak graf za svojo skupino, saj sem želela primerjati vse države z iste skupine na istem grafu, da vidim, kako se vrednosti obnašajo, npr. ali vse rastejo ali padajo ali nič od tega. Zaradi preglednosti in velike količine grafov sem se odločila, da v poročilu prikažem samo prvi graf, graf za prvo skupino, ki vsebuje podatke za 5 držav.
 
 \makebox[\textwidth][c]{
 \includegraphics[width=\textwidth]{../slike/slike-analiza/analizaeu5.pdf}
 }
 
-Vidimo, da vrednosti večinoma padajo z časom. Tudi države v drugi in peti skupini so take, da z časom vrednosti padajo. Nakar šesta skupina, ki vsebuje Estonijo in pa sedma skupina, z Slovenijo in Makedonijo, naraščajo. Tretja in četrta skupina pa sta taki, da vrednosti nekaterih držav padajo, nekateri pa naraščajo, torej mešano. Odločila sem se, da v poročilu prikažem samo linearni model za Nemčijo in Slovenijo, saj prvi model pada, drugi pa narašča.
+Vidimo, da vrednosti v prvi skupini večinoma padajo z časom. Tudi države v drugi in peti skupini so take, da z časom vrednosti padajo. Nakar šesta skupina, ki vsebuje Estonijo in pa sedma skupina, z Slovenijo in Makedonijo, naraščajo. Tretja in četrta skupina pa sta taki, da vrednosti nekaterih držav padajo, nekateri pa naraščajo, torej mešano. Odločila sem se, da v poročilu prikažem samo linearni model za Nemčijo in Slovenijo, saj prvi model pada, drugi pa narašča.
 
 \makebox[\textwidth][c]{
 \includegraphics[width=0.5\textwidth]{../slike/slike-analiza/analizaeu-ger.pdf}
@@ -265,10 +276,10 @@ Torej imamo skupine, ki samo padajo, samo naraščajo ali pa kar oboje. Da pa bi
 
 \newpage
 \makebox[\textwidth][c]{
-\includegraphics[width=\textwidth]{../slike/slike-analiza/analizaeu4.pdf}
+\includegraphics[width=1.3\textwidth]{../slike/slike-analiza/analizaeu4.pdf}
 }
 
-Graf pa sem tudi regresijsko analizirala z dvema modeloma: \emph{linearni} in \emph{kvadratni} model.\\
+Graf sem regresijsko analizirala z dvema modeloma: \emph{linearni} in \emph{kvadratni} model.\\
 Torej kaj lahko vidimo iz modelov?
 \begin{itemize}
 \item{\emph{LINEARNI MODEL:} Če imamo linearni model, iščemo premico oblike $y = kx + n$. Iz našega grafa in s pomočjo \verb|lin$coefficients|, lahko vidimo, da je enačba naše vijolične linearne premice: $y = -1.158x + 2458.791$ , kjer je x leto in y količina zajete vode celotne Evrope. Enačbo premice oz. podatka za začetno vrednosti in koeficient, sem dobila s pomočjo spremenljivke \verb|lin|, ki je nastala med iskanjem linearne zveze. Torej padajoča premica nam pove, da vrednosti količine vode z leti na splošno pada.}
@@ -278,7 +289,7 @@ Torej kaj lahko vidimo iz modelov?
 
 Sedaj pa me zanima, kateri model, linearni ali kvadratni, je tisti, ki se bolje prilega mojim podatkom. Iz grafa lako opazim, da se kvadratna bolj prilega točkam, vendar lahko mojo hipotezo preverim še z izračunom odstopanja napovedanih vrednosti od dejanskih, s pomočjo \verb|vsota.kvadratov2|, ki sem jo definirala v \verb|analizaeu.r|. Te vrednosti so preračunane vsote kvadratov razdalj od napovedanih do dejanskih vrednosti. Za linearni model dobimo vrednost 800.3, za kvadratni model pa 521. Tisti z manjšo vrednostjo, se mojim podatkom bolje prilage, torej je za moj graf kvadratni model bolj točen od linearnega.\\
 
-Torej če sedaj pogledamo ta graf, lahko spet opazimo, da so vrednosti količine vode najprej zelo  padle. Kakor pri Sloveniji, predvidevam, da je na ta padec ogromno vplivalo \underline{obnovitev vodovodnega omrežja}, pred krizo. Države so bile v razcvetu, po celi Evropi se je ogromno gradilo, obnavljalo in tako tudi cevi.  Posledično so bile manjše izgube na vododvodnem omrežju, torej so bile manjše izgube vode, posledično se je zmanjšala količina zajema vode, torej ker je to količina porabe skupaj z izgubo, mislm da je drastično padla predvsem količina izgubljene vode.  Po krizi se je tudi zmanjšala industrija, ljudje so postali bolj ozaveščeni in veliko več je varčnih stvari.\\
+Torej če sedaj pogledamo ta graf, lahko spet opazimo, da so vrednosti količine vode najprej zelo  padle. Kakor pri Sloveniji, predvidevam, da je na ta padec ogromno vplivalo \underline{obnovitev vodovodnega omrežja}, pred krizo. Države so bile v razcvetu, po celi Evropi se je ogromno gradilo, obnavljalo in tako tudi cevi.  Posledično so bile manjše izgube na vododvodnem omrežju, torej so bile manjše izgube vode, posledično se je zmanjšala količina zajema vode, torej ker je to količina porabe skupaj z izgubo, mislm da je drastično padla predvsem količina izgubljene vode.  Po krizi se je tudi zmanjšala industrija, ljudje so postali bolj ozaveščeni in varčni.\\
 
 Torej vidimo lahko, da se Evropa in Slovenija obnašata zelo podobno, na obe je močno vplivala kriza in pa pred njo, velika obnovitev vodovodnega omrežja. Kaj točno pa se bo dogajalo v prihodosti pa je zaenkrat zelo težko napovedati za obe. Glede na to, da imamo cevi obnovljene ter da smo ljudje vedno bolj ekološki in ozaveščani, bo količina vode še naprej počasi padala kar nekaj let, vendar pa bo spet prišel čas, ko bo cevi treba oboviti, ko bodo začele prepuščati vodo, takrat pa bo odvisno spet v kakšnem fiančnem stanju bo Evropa in Slovenija, ali bo spet kakšna kriza ali pa bo stanje ustaljeno in bomo cevi hitro zamenjali. Glede tega se prepustimo presenetiti, vendar pa mislim, da je za vodo nasplošno lepa prihodnost, saj smo je v veliki meri začeli ceniti in mislim, da bomo lepo poskrbeli zanjo in naše okolje.
 
