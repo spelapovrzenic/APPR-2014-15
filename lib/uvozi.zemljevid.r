@@ -46,8 +46,3 @@ uvozi.zemljevid <- function(url, ime.zemljevida, pot.zemljevida,
   
   return(zemljevid)
 }
-
-# Primer uvoza zemljevida (slovenske občine)
-#obcine <- uvozi.zemljevid("http://e-prostor.gov.si/fileadmin/BREZPLACNI_POD/RPE/OB.zip",
-#                          "obcine", "OB/OB.shp", mapa = "zemljevid",
-#                          encoding = "Windows-1250")
